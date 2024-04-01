@@ -29,7 +29,7 @@ export async function HeroSection() {
 
         <div className="z-10 flex animate-fade-up flex-col justify-center gap-4 sm:flex-row">
           <Link
-            href="/signup"
+            href="/register"
             className={cn(
               buttonVariants({ size: "lg" }),
               "transition-all duration-1000 ease-out md:hover:-translate-y-2"

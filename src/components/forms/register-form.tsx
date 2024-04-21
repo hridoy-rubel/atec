@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { useToast } from "@/hooks/use-toast";
+// import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -21,6 +21,7 @@ import { PasswordInput } from "@/components/password-input";
 import { registerFormSchema } from "@/app/validations/auth";
 import { z } from "zod";
 import { RegisterUser } from "@/actions/auth.actions";
+import { useToast } from "../ui/use-toast";
 
 export function RegisterForm(): JSX.Element {
   const router = useRouter();
@@ -50,19 +51,23 @@ export function RegisterForm(): JSX.Element {
         switch (message) {
           case "exists":
             toast({
-              title: "User with this email address already exists",
+              title: "User with this email or username address already exists",
               description: "If this is you, please sign in instead",
               variant: "destructive",
             });
+
             form.reset();
             break;
+
           case "success":
             toast({
               title: "Success!",
-              description: "Check your inbox to verify your email address",
+              description: "Your account has been registered successfully",
             });
-            router.push("/signin");
+
+            router.push("/login");
             break;
+
           default:
             toast({
               title: "Something went wrong",
@@ -96,7 +101,7 @@ export function RegisterForm(): JSX.Element {
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="rouzex" {...field} />
+                <Input placeholder="username" {...field} />
               </FormControl>
               <FormMessage className="pt-2 sm:text-sm" />
             </FormItem>

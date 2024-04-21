@@ -30,39 +30,21 @@ export default async function SignUpPage(): Promise<JSX.Element> {
               <Icons.close className="size-4" />
             </Link>
           </div>
-          <CardDescription>
-            Choose your preferred sign up method
-          </CardDescription>
         </CardHeader>
         <CardContent className="max-sm:w-full max-sm:max-w-[340px] max-sm:px-10">
           <RegisterForm />
         </CardContent>
         <CardFooter className="grid w-full gap-4 text-sm text-muted-foreground max-sm:max-w-[340px] max-sm:px-10">
           <div>
-            <div>
-              <span> Already have an account? </span>
-              <Link
-                aria-label="Sign in"
-                href="/signin"
-                className="font-bold tracking-wide text-primary underline-offset-4 transition-all hover:underline"
-              >
-                Sign in
-                <span className="sr-only">Sign in</span>
-              </Link>
-              .
-            </div>
-            <div>
-              <span>Lost email verification link? </span>
-              <Link
-                aria-label="Resend email verification link"
-                href="/signup/reverify-email"
-                className="text-sm font-normal text-primary underline-offset-4 transition-colors hover:underline"
-              >
-                Resend
-                <span className="sr-only">Resend email verification link</span>
-              </Link>
-              .
-            </div>
+            <span> Already have an account? </span>
+            <Link
+              aria-label="login"
+              href="/login"
+              className="font-bold tracking-wide text-primary underline-offset-4 transition-all hover:underline"
+            >
+              Login
+              <span className="sr-only">Login</span>
+            </Link>
           </div>
 
           <div className="text-sm text-muted-foreground md:text-xs">

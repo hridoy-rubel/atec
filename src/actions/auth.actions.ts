@@ -24,6 +24,14 @@ export async function RegisterUser({
       return "invalid-input";
     }
 
+    const user = await User.findOne({
+      $or: [{ username: username }, { email: email }],
+    });
+
+    if (user) {
+      return "exists";
+    }
+
     await connectToDatabase();
 
     const newUser = await User.create({

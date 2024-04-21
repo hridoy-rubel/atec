@@ -25,7 +25,7 @@ export default async function SignUpPage(): Promise<JSX.Element> {
       <Card className="max-sm:flex max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-2xl">Sign up</CardTitle>
+            <CardTitle className="text-2xl">Register</CardTitle>
             <Link href="/">
               <Icons.close className="size-4" />
             </Link>

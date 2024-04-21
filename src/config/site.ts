@@ -20,20 +20,12 @@ export const siteConfig = {
   keywords: ["ATEC", "atec", "Tangail Ex-Cadets"],
   navItems: [
     {
-      title: "About",
-      href: "/about",
-    },
-    {
       title: "Features",
       href: "/features",
     },
     {
       title: "Pricing",
       href: "/pricing",
-    },
-    {
-      title: "FAQ",
-      href: "/faq",
     },
     {
       title: "Docs",

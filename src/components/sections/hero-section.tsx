@@ -37,16 +37,6 @@ export async function HeroSection() {
           >
             Get Started
           </Link>
-
-          {/* <Link
-            href={siteConfig.links.github}
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "transition-all duration-1000 ease-out md:hover:-translate-y-2"
-            )}
-          >
-            See on GitHub
-          </Link> */}
         </div>
       </div>
     </section>

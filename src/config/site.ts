@@ -1,39 +1,42 @@
 import { type NavItem, type NavItemFooter } from "@/types";
 
-/* const links = {
-  github:
-    "https://github.com/pjborowiecki/SAASY-LAND-Next-14-Starters-With-Authentication-And-Database-Implemented",
-  twitter: "https://twitter.com/pjborowiecki",
-  linkedin: "https://www.linkedin.com/in/pjborowiecki",
-  discord: "",
-  authorsWebsite: "https://pjborowiecki.com",
-  authorsGitHub: "https://github.com/pjborowiecki",
-  openGraphImage: "https://saasyland.com/images/opengraph-image.png",
-} */
-
 export const siteConfig = {
   name: "ATEC-Website",
   description:
     "Manages the data and events for Association of Tangail Ex-Cadets",
   url: "https://rouzex.com",
   author: "rouzex",
-  keywords: ["ATEC", "atec", "Tangail Ex-Cadets"],
+  keywords: [
+    "ATEC",
+    "atec",
+    "Tangail Ex-Cadets",
+    "Association of Tangail Ex-Cadets",
+    "Tangail Ex-Cadets Association",
+  ],
   navItems: [
     {
-      title: "Features",
-      href: "/features",
+      title: "Home",
+      href: "/",
     },
     {
-      title: "Pricing",
-      href: "/pricing",
+      title: "About",
+      href: "/about",
     },
     {
-      title: "Docs",
-      href: "/docs",
+      title: "Gallery",
+      href: "/gallery",
     },
     {
-      title: "Blog",
-      href: "/blog",
+      title: "Events",
+      href: "/events",
+    },
+    {
+      title: "Membership",
+      href: "/membership",
+    },
+    {
+      title: "Dashboard",
+      href: "/dashboard",
     },
   ] satisfies NavItem[],
   navItemsMobile: [],

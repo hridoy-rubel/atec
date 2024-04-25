@@ -10,7 +10,7 @@ type LinkButtonPropTypes = {
 
 const LinkButton = ({ title }: LinkButtonPropTypes) => {
   return (
-    <div className="z-10 flex animate-fade-up flex-col justify-center gap-4 sm:flex-row">
+    <div className="animate-fade-up">
       <Link
         href="/register"
         className={cn(

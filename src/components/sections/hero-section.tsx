@@ -5,6 +5,8 @@ import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import LinkButton from "../ui/link-button";
+import Heading from "../shared/heading";
+import SubHeading from "../shared/sub-heading";
 
 export async function HeroSection() {
   return (
@@ -26,16 +28,8 @@ export async function HeroSection() {
 
         <div className="w-full lg:w-7/12 md:pl-8 lg:pl-16 text-center lg:text-left">
           <div>
-            <h3 className="text-blue-700 font-bold sm:text-lg md:text-xl lg:text-2xl mb-4 tracking-widest">
-              RISE AS ONE, SHINE FOR ALL
-            </h3>
-            <h1 className="animate-fade-up font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-4">
-              <Balancer>
-                <span className="bg-gradient-to-r from-pink-700 to-purple-500 bg-clip-text font-extrabold text-transparent">
-                  Welcome To ATEC{""}
-                </span>
-              </Balancer>
-            </h1>
+            <SubHeading content="RISE AS ONE, SHINE FOR ALL" />
+            <Heading content="Welcome To ATEC" />
 
             <div className="relative">
               <div className="border-r-4 border-blue-700 h-4/6 hidden ml-5 absolute lg:block lg:mt-8 xl:mt-6 "></div>{" "}

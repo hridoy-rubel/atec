@@ -11,18 +11,25 @@ export type RegisterUserParams = {
   confirmPassword: string;
 };
 
-export async function RegisterUser({
+export type LoginUserParams = {
+  username: string;
+  password: string;
+};
+
+export const RegisterUser = async ({
   username,
   email,
   password,
   confirmPassword,
 }: RegisterUserParams): Promise<
   "invalid-input" | "exists" | "error" | "success"
-> {
+> => {
   try {
     if (password !== confirmPassword) {
       return "invalid-input";
     }
+
+    await connectToDatabase();
 
     const user = await User.findOne({
       $or: [{ username: username }, { email: email }],
@@ -31,8 +38,6 @@ export async function RegisterUser({
     if (user) {
       return "exists";
     }
-
-    await connectToDatabase();
 
     const newUser = await User.create({
       email,
@@ -45,4 +50,29 @@ export async function RegisterUser({
     handleError("Error Registering User: ", error);
     return "error";
   }
-}
+};
+
+export const LoginUser = async ({
+  username,
+  password,
+}: LoginUserParams): Promise<
+  "invalid-input" | "not-exists" | "error" | "success"
+> => {
+  try {
+    if (!username || !password) {
+      return "invalid-input";
+    }
+
+    await connectToDatabase();
+
+    const user = await User.findOne({
+      $and: [{ username: username }, { password: password }],
+    });
+
+    return user ? "success" : "not-exists";
+  } catch (error) {
+    console.log("the error: ", error);
+    handleError("Error Registering User: ", error);
+    return "error";
+  }
+};

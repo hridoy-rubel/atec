@@ -9,14 +9,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Icons } from "@/components/icons";
-import { RegisterForm } from "@/components/forms/register-form";
+import RegisterForm from "@/components/forms/register-form";
 
 export const metadata: Metadata = {
-  title: "Sign Up",
-  description: "Sign up for an account",
+  title: "Register",
+  description: "Register for an account",
 };
 
-export default async function SignUpPage(): Promise<JSX.Element> {
+const RegisterPage = async (): Promise<JSX.Element> => {
   /*   const session = await auth()
   if (session) redirect(DEFAULT_SIGNIN_REDIRECT) */
 
@@ -72,4 +72,6 @@ export default async function SignUpPage(): Promise<JSX.Element> {
       </Card>
     </div>
   );
-}
+};
+
+export default RegisterPage;

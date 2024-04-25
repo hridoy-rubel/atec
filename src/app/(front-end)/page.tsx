@@ -1,4 +1,3 @@
-import { BenefitsSection } from "@/components/sections/benefits-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { FAQSection } from "@/components/sections/faq-section";
 import { EventsSection } from "@/components/sections/events-section";
@@ -10,7 +9,6 @@ export default function LandingPage(): JSX.Element {
   return (
     <div className="grid w-full grid-cols-1 items-center justify-center gap-16 md:gap-32">
       <HeroSection />
-      <BenefitsSection />
       <EventsSection />
       <NewsletterSection />
       <TestimonialsSection />

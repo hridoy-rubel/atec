@@ -1,6 +1,7 @@
 import Image from "next/image";
 import LinkButton from "../ui/link-button";
-import Link from "next/link";
+import SubHeading from "../shared/sub-heading";
+import Heading from "../shared/heading";
 
 export function EventsSection() {
   return (
@@ -9,15 +10,10 @@ export function EventsSection() {
       aria-label="features section"
       className="w-full"
     >
-      
       <main className="container mt-5 mb-5">
-        <div className="edu-elements-area edu-section-gap">
-          <h4 className="text-blue-600 font-bold sm:text-lg md:text-xl lg:text-4xl mb-4 text-center">
-            Upcoming Events
-          </h4>
-          <h3 className="animate-fade-up font-urbanist font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-4xl mb-6 text-center">
-            Your Presence Matters Most: Join The Event!
-          </h3>
+        <div className="edu-elements-area edu-section-gap text-center">
+          <SubHeading content="UPCOMING EVENTS" />
+          <Heading content="Your Presence Matters Most: Join The Event!" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

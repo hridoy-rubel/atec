@@ -19,11 +19,12 @@ import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useToast } from "../ui/use-toast";
+import { showToast } from "@/lib/toast";
+import { useTheme } from "next-themes";
 
 export function LoginForm(): JSX.Element {
+  const { theme } = useTheme();
   const router = useRouter();
-  const { toast } = useToast();
   const [isPending, startTransition] = React.useTransition();
 
   const form = useForm<z.infer<typeof loginFormSchema>>({
@@ -44,47 +45,38 @@ export function LoginForm(): JSX.Element {
 
         switch (message) {
           case "not-exists":
-            toast({
-              title: "username or password does not exist",
-              description: "If you don't have an account, please register now",
-              variant: "destructive",
+            showToast("error", "username or password does not exist!", {
+              theme: theme,
             });
-
             form.reset();
             break;
           case "invalid-input":
-            toast({
-              title: "username of password is missing",
-              variant: "destructive",
+            showToast("warning", "username of password is missing", {
+              theme: theme,
             });
 
             form.reset();
             break;
 
           case "success":
-            toast({
-              title: "Success!",
-              description: "Successfully logged in",
+            showToast("success", "Successfully logged in!", {
+              theme: theme,
             });
 
             router.push("/");
             break;
 
           default:
-            toast({
-              title: "Something went wrong",
-              description: "Please try again",
-              variant: "destructive",
+            showToast("error", "Sorry! Something went wrong", {
+              theme: theme,
             });
 
             console.error(message);
         }
       } catch (error) {
         console.error(error);
-        toast({
-          title: "Something went wrong",
-          description: "Please try again",
-          variant: "destructive",
+        showToast("error", "Sorry! Something went wrong", {
+          theme: theme,
         });
       }
     });

@@ -7,7 +7,7 @@ import { fontHeading, fontInter, fontUrbanist } from "@/config/fonts";
 import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { cn } from "@/lib/utils";
-import { Toaster } from "@/components/ui/toaster";
+import ToastProvider from "@/providers/toast-provider";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -47,8 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
             enableSystem
             disableTransitionOnChange
           >
-            {children}
-            <Toaster />
+            <ToastProvider>{children}</ToastProvider>
           </ThemeProvider>
         </SmoothScrollProvider>
       </body>

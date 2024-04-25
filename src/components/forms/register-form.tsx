@@ -19,11 +19,13 @@ import { PasswordInput } from "@/components/password-input";
 import { registerFormSchema } from "@/app/validations/auth";
 import { z } from "zod";
 import { RegisterUser } from "@/actions/auth.actions";
-import { useToast } from "../ui/use-toast";
+import { showToast } from "@/lib/toast";
+import { useTheme } from "next-themes";
 
 const RegisterForm = (): JSX.Element => {
   const router = useRouter();
-  const { toast } = useToast();
+  const { theme } = useTheme();
+
   const [isPending, startTransition] = React.useTransition();
 
   const form = useForm<z.infer<typeof registerFormSchema>>({
@@ -48,48 +50,46 @@ const RegisterForm = (): JSX.Element => {
 
         switch (message) {
           case "exists":
-            toast({
-              title: "User with this email or username address already exists",
-              description: "If this is you, please sign in instead",
-              variant: "destructive",
-            });
+            showToast(
+              "error",
+              "Sorry! User with this email or username address already exists",
+              {
+                theme: theme,
+              }
+            );
 
             form.reset();
             break;
-
           case "invalid-input":
-            toast({
-              title: "Password and Confirm Password do not match",
-              variant: "destructive",
+            showToast("error", "Password and Confirm Password do not match", {
+              theme: theme,
             });
 
             form.reset();
             break;
 
           case "success":
-            toast({
-              title: "Success!",
-              description: "Your account has been registered successfully",
-            });
-
+            showToast(
+              "error",
+              "Your account has been registered successfully!",
+              {
+                theme: theme,
+              }
+            );
             router.push("/login");
             break;
 
           default:
-            toast({
-              title: "Something went wrong",
-              description: "Please try again",
-              variant: "destructive",
+            showToast("error", "Sorry! Something went wrong", {
+              theme: theme,
             });
-
             console.error(message);
         }
       } catch (error) {
         console.error(error);
-        toast({
-          title: "Something went wrong",
-          description: "Please try again",
-          variant: "destructive",
+
+        showToast("error", "Sorry! Something went wrong", {
+          theme: theme,
         });
       }
     });

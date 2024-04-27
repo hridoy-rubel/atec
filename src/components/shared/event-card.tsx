@@ -23,14 +23,14 @@ const EventCard = ({
   time,
 }: EventCardPropTypes) => {
   return (
-    <div className="mx-auto flex items-center justify-center w-[320px] h-[490px]">
+    <div className="mx-auto flex items-center justify-center w-[310px] h-[490px]">
       <div className="flex flex-col w-full rounded-md shadow-lg">
         {/* image section */}
         <div className="w-full bg-top bg-cover rounded-t">
           <Image
             alt="event image"
             src={image}
-            width={320}
+            width={310}
             height={215}
             className="rounded-t-md"
           />
@@ -46,9 +46,9 @@ const EventCard = ({
             </div>
             <div className="md:text-xl text-nowrap">{time}</div>
           </div>
-          {/* rgb(231 77 228 / 63%) */}
+
           {/* content section */}
-          <div className="p-4 font-normal bg-gradient-to-r from-pink-600/10 to-purple-400/10 transition-all duration-1000 ease-out hover:opacity-70 md:hover:-translate-y-2">
+          <div className="p-4 font-normal bg-gradient-to-r from-pink-600/10 to-purple-400/10 transition-all duration-1000 ease-out hover:opacity-70 md:hover:-translate-y-2 text-center md:w-3/4">
             <h1
               className={cn(
                 "mb-4 text-2xl font-bold leading-none tracking-tight",
@@ -66,7 +66,7 @@ const EventCard = ({
               {description}
             </p>
             <div className=" mt-4">
-              <div className="flex text-left">
+              <div className="flex items-center justify-center">
                 <FontAwesomeIcon icon={faLocationDot} className="size-5" />
                 <p className="ml-1">{location}</p>
               </div>

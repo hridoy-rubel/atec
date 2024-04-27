@@ -6,15 +6,18 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 type LinkButtonPropTypes = {
   title: string;
+  size?: "default" | "sm" | "lg" | "icon";
+  link?: string;
+  icon?: JSX.Element;
 };
 
-const LinkButton = ({ title }: LinkButtonPropTypes) => {
+const LinkButton = ({ title, size = "lg" }: LinkButtonPropTypes) => {
   return (
     <div className="animate-fade-up">
       <Link
         href="/register"
         className={cn(
-          buttonVariants({ size: "lg" }),
+          buttonVariants({ size: size }),
           "transition-all duration-1000 ease-out md:hover:-translate-y-2"
         )}
       >

@@ -31,3 +31,12 @@ export interface Testimonial {
   role: string;
   avatar: string;
 }
+
+export interface EventType {
+  title: string;
+  date: Date;
+  time: string;
+  description: string;
+  location: string;
+  image: string;
+}

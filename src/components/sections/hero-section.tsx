@@ -1,12 +1,8 @@
-import Link from "next/link";
-import Balancer from "react-wrap-balancer";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import LinkButton from "../ui/link-button";
+import Balancer from "react-wrap-balancer";
 import Heading from "../shared/heading";
 import SubHeading from "../shared/sub-heading";
+import LinkButton from "../ui/link-button";
 
 export async function HeroSection() {
   return (

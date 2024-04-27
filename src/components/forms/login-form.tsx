@@ -1,9 +1,9 @@
 "use client";
 
-import * as React from "react";
-import { useRouter } from "next/navigation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { LoginUser } from "@/actions/auth.actions";
+import { loginFormSchema } from "@/app/validations/auth";
+import { Icons } from "@/components/icons";
+import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,54 +14,44 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Icons } from "@/components/icons";
-import { PasswordInput } from "@/components/password-input";
-import { registerFormSchema } from "@/app/validations/auth";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import * as React from "react";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { RegisterUser } from "@/actions/auth.actions";
 import { showToast } from "@/lib/toast";
 import { useTheme } from "next-themes";
 
-const RegisterForm = (): JSX.Element => {
-  const router = useRouter();
+export function LoginForm(): JSX.Element {
   const { theme } = useTheme();
-
+  const router = useRouter();
   const [isPending, startTransition] = React.useTransition();
 
-  const form = useForm<z.infer<typeof registerFormSchema>>({
-    resolver: zodResolver(registerFormSchema),
+  const form = useForm<z.infer<typeof loginFormSchema>>({
+    resolver: zodResolver(loginFormSchema),
     defaultValues: {
       username: "",
-      email: "",
       password: "",
-      confirmPassword: "",
     },
   });
 
-  function onSubmit(formData: z.infer<typeof registerFormSchema>): void {
+  function onSubmit(formData: z.infer<typeof loginFormSchema>): void {
     startTransition(async () => {
       try {
-        const message = await RegisterUser({
+        const message = await LoginUser({
           username: formData.username,
-          email: formData.email,
           password: formData.password,
-          confirmPassword: formData.confirmPassword,
         });
 
         switch (message) {
-          case "exists":
-            showToast(
-              "error",
-              "Sorry! User with this email or username address already exists",
-              {
-                theme: theme,
-              }
-            );
-
+          case "not-exists":
+            showToast("error", "username or password does not exist!", {
+              theme: theme,
+            });
             form.reset();
             break;
           case "invalid-input":
-            showToast("error", "Password and Confirm Password do not match", {
+            showToast("warning", "username of password is missing", {
               theme: theme,
             });
 
@@ -69,25 +59,22 @@ const RegisterForm = (): JSX.Element => {
             break;
 
           case "success":
-            showToast(
-              "error",
-              "Your account has been registered successfully!",
-              {
-                theme: theme,
-              }
-            );
-            router.push("/login");
+            showToast("success", "Successfully logged in!", {
+              theme: theme,
+            });
+
+            router.push("/");
             break;
 
           default:
             showToast("error", "Sorry! Something went wrong", {
               theme: theme,
             });
+
             console.error(message);
         }
       } catch (error) {
         console.error(error);
-
         showToast("error", "Sorry! Something went wrong", {
           theme: theme,
         });
@@ -117,38 +104,10 @@ const RegisterForm = (): JSX.Element => {
 
         <FormField
           control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="johnsmith@gmail.com" {...field} />
-              </FormControl>
-              <FormMessage className="pt-2 sm:text-sm" />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
           name="password"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Password</FormLabel>
-              <FormControl>
-                <PasswordInput placeholder="**********" {...field} />
-              </FormControl>
-              <FormMessage className="pt-2 sm:text-sm" />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="confirmPassword"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Confirm Password</FormLabel>
               <FormControl>
                 <PasswordInput placeholder="**********" {...field} />
               </FormControl>
@@ -164,7 +123,7 @@ const RegisterForm = (): JSX.Element => {
                 className="mr-2 size-4 animate-spin"
                 aria-hidden="true"
               />
-              <span>Register...</span>
+              <span>Login...</span>
             </>
           ) : (
             <span>Continue</span>
@@ -176,6 +135,4 @@ const RegisterForm = (): JSX.Element => {
       </form>
     </Form>
   );
-};
-
-export default RegisterForm;
+}

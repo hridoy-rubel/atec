@@ -35,7 +35,7 @@ export function EventsSection() {
         <div className="container">
           <Carousel
             plugins={[plugin.current]}
-            className="w-full max-w-xs md:max-w-[650px]"
+            className="w-full max-w-xs md:max-w-[650px] md:ml-6 lg:max-w-[1050px] gap-2 lg:ml-10"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
             opts={{

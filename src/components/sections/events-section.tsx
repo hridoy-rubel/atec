@@ -21,18 +21,14 @@ export function EventsSection() {
   );
 
   return (
-    <section
-      id="features-section"
-      aria-label="features section"
-      className="w-full"
-    >
+    <section id="event-section" aria-label="event section" className="w-full">
       <main className="container mt-5 grid gap-12 md:gap-5">
-        <div className="edu-elements-area edu-section-gap text-center">
+        <div className="text-center">
           <SubHeading content="UPCOMING EVENTS" />
           <Heading content="Your Presence Matters Most" />
         </div>
 
-        <div className="container">
+        <div className="container flex justify-center">
           <Carousel
             plugins={[plugin.current]}
             className="w-full max-w-xs md:max-w-[650px] md:ml-6 lg:max-w-[1050px] gap-2 lg:ml-10"

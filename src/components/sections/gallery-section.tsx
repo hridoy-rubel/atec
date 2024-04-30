@@ -4,7 +4,6 @@ import SubHeading from "../shared/sub-heading";
 import Heading from "../shared/heading";
 import LinkButton from "../ui/link-button";
 import Autoplay from "embla-carousel-autoplay";
-
 import { GalleryType } from "@/types";
 import GalleryCard from "../shared/gallery-card";
 
@@ -21,6 +20,7 @@ export function GallerySection() {
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
+
   return (
     <section>
       <div className="container mt-5 grid gap-12 md:gap-5 ">
@@ -28,7 +28,8 @@ export function GallerySection() {
           <SubHeading content="ATEC GALLERY" />
           <Heading content="Welcome to Memory Lane" />
         </div>
-        {/* Carousol part */}
+
+        {/* Carousel part */}
         <div className="container">
           <div className="w-full max-w-xs md:max-w-[650px] md:mr-4 lg:max-w-[1050px] gap-2 lg:ml-28 ">
             <Carousel
@@ -60,8 +61,8 @@ export function GallerySection() {
           </div>
         </div>
 
-        <div className="text-center mb-4">
-          <LinkButton title="See more" />
+        <div className="text-center mb-4 mt-5">
+          <LinkButton title="See more" link="/gallery" />
         </div>
       </div>
     </section>

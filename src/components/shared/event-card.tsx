@@ -24,7 +24,6 @@ const EventCard = ({
   return (
     <div className="mx-auto flex items-center justify-center w-[310px] h-[490px]">
       <div className="flex flex-col w-full rounded-md shadow-lg">
-        {/* image section */}
         <div className="w-full bg-top bg-cover rounded-t">
           <Image
             alt="event image"
@@ -35,10 +34,8 @@ const EventCard = ({
           />
         </div>
 
-        {/* card section */}
         <div className="flex flex-col w-full md:flex-row h-[290px] overflow-hidden">
-          {/* date section */}
-          <div className="flex flex-row justify-around p-4 font-bold leading-none uppercase bg-[#e74de4a1] dark:bg-[#d676d480] md:rounded md:flex-col md:items-center md:justify-center md:w-1/4">
+          <div className="flex flex-row justify-around p-4 font-bold leading-none uppercase bg-[#e74de4a1] dark:bg-[#d676d480] md:rounded-bl-md md:flex-col md:items-center md:justify-center md:w-1/4">
             <div className="md:text-xl">{date.getDate()}</div>
             <div className="md:text-2xl">
               {date.toLocaleString("en", { month: "short" })}

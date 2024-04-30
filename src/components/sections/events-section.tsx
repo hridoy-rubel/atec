@@ -22,7 +22,7 @@ export function EventsSection() {
 
   return (
     <section id="event-section" aria-label="event section" className="w-full">
-      <main className="container mt-5 grid gap-12 md:gap-5">
+      <main className="container mt-5 grid gap-12 md:gap-5 lg:gap-4">
         <div className="text-center">
           <SubHeading content="UPCOMING EVENTS" />
           <Heading content="Your Presence Matters Most" />
@@ -61,8 +61,8 @@ export function EventsSection() {
           </Carousel>
         </div>
 
-        <div className="text-center">
-          <LinkButton title="See more" />
+        <div className="text-center mt-5">
+          <LinkButton title="See more" link="/events" />
         </div>
       </main>
     </section>

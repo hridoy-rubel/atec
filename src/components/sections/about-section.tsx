@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Heading from "../shared/heading";
 import SubHeading from "../shared/sub-heading";
-import { FaBookOpenReader } from "react-icons/fa6";
+import { FcReadingEbook } from "react-icons/fc";
 
 export function AboutSection(): JSX.Element {
   return (
     <section
       id="about-section"
       aria-label="about us section"
-      className="w-full"
+      className="w-full mb-10"
     >
       <div className="container mt-5 flex flex-col lg:flex-row justify-center">
         <div className="relative md:mb-16 lg:w-2/5 md:px-8 lg:px-16">
@@ -47,8 +47,8 @@ export function AboutSection(): JSX.Element {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between mt-8 gap-2">
-            <div className="w-14 h-14 bg-orange-500 rounded-full ring-4 ring-orange-800 p-3 hidden lg:block">
-              <FaBookOpenReader className="fa-2x text-white" />
+            <div className="rounded-full  hidden lg:block h-16 p-2 dark:bg-[#304a49] bg-[#d3287138]">
+              <FcReadingEbook className="text-5xl text-white" />
             </div>
             <div className="mb-8 p-4 rounded-lg shadow-lg md:mb-0 dark:bg-gradient-to-br">
               <h1 className="text-center md:text-left font-bold black-700">

@@ -11,11 +11,15 @@ type LinkButtonPropTypes = {
   icon?: JSX.Element;
 };
 
-const LinkButton = ({ title, size = "lg" }: LinkButtonPropTypes) => {
+const LinkButton = ({
+  title,
+  size = "lg",
+  link = "/register",
+}: LinkButtonPropTypes) => {
   return (
     <div className="animate-fade-up">
       <Link
-        href="/register"
+        href={link}
         className={cn(
           buttonVariants({ size: size }),
           "transition-all duration-1000 ease-out md:hover:-translate-y-2"

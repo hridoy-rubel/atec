@@ -7,18 +7,17 @@ type GalleryCardPropTypes = {
 
 const GalleryCard = ({ image, title }: GalleryCardPropTypes) => {
   return (
-    /*  <div className="mx-auto flex items-center justify-center w-[310px] h-[490px]"> */
-    <div className="flex flex-col w-full rounded-md shadow-lg">
-      {/* image section */}
-      <div className="w-full bg-top bg-cover rounded-sm">
-        <Image
-          alt="gallery image"
-          src={image}
-          width={500}
-          height={400}
-          className="rounded-t-md"
-        />
-        <div className="text-center p-2 text-blue-700 font-bold "> {title}</div>
+    <div className="w-full bg-top bg-cover rounded-md">
+      <Image
+        alt="gallery image"
+        src={image}
+        width={310}
+        height={0}
+        className="rounded-t-md"
+        style={{ width: "100%", height: "auto" }}
+      />
+      <div className="text-center p-2 font-bold shadow-lg bg-[#e74de4a1] dark:bg-[#d676d480] rounded-b-md">
+        {title}
       </div>
     </div>
   );

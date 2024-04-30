@@ -38,20 +38,21 @@ export function LoginForm(): JSX.Element {
   function onSubmit(formData: z.infer<typeof loginFormSchema>): void {
     startTransition(async () => {
       try {
-        const message = await LoginUser({
+        const response = await LoginUser({
           username: formData.username,
           password: formData.password,
         });
 
-        switch (message) {
+        switch (response?.message) {
           case "not-exists":
-            showToast("error", "username or password does not exist!", {
+            showToast("error", "Invalid Credential!", {
               theme: theme,
             });
+
             form.reset();
             break;
           case "invalid-input":
-            showToast("warning", "username of password is missing", {
+            showToast("warning", "username or password is missing", {
               theme: theme,
             });
 
@@ -71,7 +72,7 @@ export function LoginForm(): JSX.Element {
               theme: theme,
             });
 
-            console.error(message);
+            console.error(response?.message);
         }
       } catch (error) {
         console.error(error);

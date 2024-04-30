@@ -30,14 +30,6 @@ export const siteConfig = {
       title: "Events",
       href: "/events",
     },
-    {
-      title: "Membership",
-      href: "/membership",
-    },
-    {
-      title: "Dashboard",
-      href: "/dashboard",
-    },
   ] satisfies NavItem[],
   navItemsMobile: [],
   navItemsFooter: [

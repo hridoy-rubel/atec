@@ -61,7 +61,7 @@ const RegisterForm = (): JSX.Element => {
             form.reset();
             break;
           case "invalid-input":
-            showToast("error", "Password and Confirm Password do not match", {
+            showToast("warning", "Password and Confirm Password do not match", {
               theme: theme,
             });
 
@@ -70,7 +70,7 @@ const RegisterForm = (): JSX.Element => {
 
           case "success":
             showToast(
-              "error",
+              "success",
               "Your account has been registered successfully!",
               {
                 theme: theme,

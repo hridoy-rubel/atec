@@ -1,8 +1,13 @@
 "use server";
 
-import { handleError } from "@/lib/utils";
+import { defaultSession, handleError, sessionOptions } from "@/lib/utils";
 import { connectToDatabase } from "../database";
 import User from "../database/models/user.model";
+import bcrypt from "bcryptjs";
+import { getIronSession } from "iron-session";
+import { SessionData } from "@/types";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export type RegisterUserParams = {
   username: string;
@@ -35,14 +40,15 @@ export const RegisterUser = async ({
       $or: [{ username: username }, { email: email }],
     });
 
-    if (user) {
-      return "exists";
-    }
+    // Hashing the password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = await User.create({
       email,
       username,
-      password,
+      password: hashedPassword,
+      image: "",
     });
 
     return newUser ? "success" : "error";
@@ -55,24 +61,61 @@ export const RegisterUser = async ({
 export const LoginUser = async ({
   username,
   password,
-}: LoginUserParams): Promise<
-  "invalid-input" | "not-exists" | "error" | "success"
-> => {
+}: LoginUserParams): Promise<{
+  message: "invalid-input" | "not-exists" | "error" | "success";
+  data?: any;
+}> => {
+  const session = await getSession();
+
   try {
     if (!username || !password) {
-      return "invalid-input";
+      return { message: "invalid-input" };
     }
 
     await connectToDatabase();
 
-    const user = await User.findOne({
-      $and: [{ username: username }, { password: password }],
-    });
+    const existingUser = await User.findOne({ username });
 
-    return user ? "success" : "not-exists";
+    if (!existingUser) return { message: "not-exists" };
+
+    const isMatched = await bcrypt.compare(password, existingUser.password);
+    if (!isMatched) return { message: "not-exists" };
+
+    const TOKEN_SECRET_KEY = process.env.TOKEN_SECRET_KEY;
+
+    if (!TOKEN_SECRET_KEY) {
+      throw new Error(
+        "TOKEN_SECRET_KEY is not defined in the environment variables."
+      );
+    }
+
+    session.userId = existingUser._id;
+    session.username = existingUser.username;
+    session.email = existingUser.email;
+    session.image = existingUser.image;
+    session.isLoggedIn = true;
+
+    await session.save();
+
+    return { message: "success" };
   } catch (error) {
-    console.log("the error: ", error);
     handleError("Error Registering User: ", error);
-    return "error";
+    return { message: "error" };
   }
+};
+
+export const getSession = async () => {
+  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+
+  if (!session?.isLoggedIn) {
+    session.isLoggedIn = defaultSession?.isLoggedIn;
+  }
+
+  return session;
+};
+
+export const logout = async () => {
+  const session = await getSession();
+  session.destroy();
+  redirect("/");
 };

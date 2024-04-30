@@ -40,3 +40,11 @@ export interface EventType {
   location: string;
   image: string;
 }
+
+export interface SessionData {
+  userId?: string;
+  username?: string;
+  email?: string;
+  image?: string;
+  isLoggedIn: boolean;
+}

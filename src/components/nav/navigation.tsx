@@ -15,9 +15,13 @@ import {
 
 interface NavigationProps {
   navItems: NavItem[];
+  isLoggedIn: boolean;
 }
 
-export function Navigation({ navItems }: NavigationProps): JSX.Element {
+export function Navigation({
+  navItems,
+  isLoggedIn,
+}: NavigationProps): JSX.Element {
   return (
     <NavigationMenu className="hidden transition-all duration-300 ease-in-out md:flex">
       <NavigationMenuList>
@@ -32,6 +36,28 @@ export function Navigation({ navItems }: NavigationProps): JSX.Element {
             </Link>
           </NavigationMenuItem>
         ))}
+        {isLoggedIn && (
+          <>
+            <NavigationMenuItem key="dashboard" asChild>
+              <Link href="/dashboard" legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+                >
+                  Dashboard
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem key="membership" asChild>
+              <Link href="/membership" legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+                >
+                  Membership
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </>
+        )}
       </NavigationMenuList>
     </NavigationMenu>
   );

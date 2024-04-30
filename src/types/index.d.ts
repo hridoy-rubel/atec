@@ -45,3 +45,11 @@ export interface GalleryType {
   title: string;
   image: string;
 }
+
+export interface SessionData {
+  userId?: string;
+  username?: string;
+  email?: string;
+  image?: string;
+  isLoggedIn: boolean;
+}

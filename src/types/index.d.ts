@@ -41,6 +41,11 @@ export interface EventType {
   image: string;
 }
 
+export interface GalleryType {
+  title: string;
+  image: string;
+}
+
 export interface SessionData {
   userId?: string;
   username?: string;

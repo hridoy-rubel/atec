@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { FaLocationDot } from "react-icons/fa6";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
@@ -67,7 +66,7 @@ const EventCard = ({
             </p>
             <div className=" mt-4">
               <div className="flex items-center justify-center">
-                <FontAwesomeIcon icon={faLocationDot} className="size-5" />
+                <FaLocationDot className="size-5" />
                 <p className="ml-1">{location}</p>
               </div>
 

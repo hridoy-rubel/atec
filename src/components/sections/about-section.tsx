@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Heading from "../shared/heading";
 import SubHeading from "../shared/sub-heading";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpenReader } from "@fortawesome/free-solid-svg-icons";
+import { FaBookOpenReader } from "react-icons/fa6";
 
 export function AboutSection(): JSX.Element {
   return (
@@ -49,10 +48,7 @@ export function AboutSection(): JSX.Element {
 
           <div className="flex flex-col md:flex-row justify-between mt-8 gap-2">
             <div className="w-14 h-14 bg-orange-500 rounded-full ring-4 ring-orange-800 p-3 hidden lg:block">
-              <FontAwesomeIcon
-                icon={faBookOpenReader}
-                className="fa-2x text-white"
-              />
+              <FaBookOpenReader className="fa-2x text-white" />
             </div>
             <div className="mb-8 p-4 rounded-lg shadow-lg md:mb-0 dark:bg-gradient-to-br">
               <h1 className="text-center md:text-left font-bold black-700">

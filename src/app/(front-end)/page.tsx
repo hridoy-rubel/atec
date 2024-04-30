@@ -1,8 +1,6 @@
-import { ContactSection } from "@/components/sections/contact-section";
-import { FAQSection } from "@/components/sections/faq-section";
+import { AboutSection } from "@/components/sections/about-section";
 import { EventsSection } from "@/components/sections/events-section";
 import { HeroSection } from "@/components/sections/hero-section";
-import { AboutSection } from "@/components/sections/about-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 
 export default function LandingPage(): JSX.Element {
@@ -12,8 +10,6 @@ export default function LandingPage(): JSX.Element {
       <EventsSection />
       <AboutSection />
       <TestimonialsSection />
-      <FAQSection />
-      <ContactSection />
     </div>
   );
 }

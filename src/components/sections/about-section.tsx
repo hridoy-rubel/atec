@@ -34,7 +34,7 @@ export function AboutSection(): JSX.Element {
           </div>
         </div>
 
-        <div className="mt-5 lg:w-3/5 md:px-8 lg:px-16">
+        <div className="mt-5 lg:w-3/5 md:px-8 lg:px-16 lg:mt-0">
           <div className="lg:text-left">
             <div className="text-center lg:text-left">
               <SubHeading content="ABOUT US" />

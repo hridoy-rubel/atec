@@ -40,3 +40,8 @@ export interface EventType {
   location: string;
   image: string;
 }
+
+export interface GalleryType {
+  title: string;
+  image: string;
+}

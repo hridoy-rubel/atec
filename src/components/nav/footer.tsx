@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
-import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-// import { NewsletterSignUpForm } from "@/components/forms/newsletter-signup-form";
 import { Icons } from "@/components/icons";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -15,17 +13,8 @@ export function Footer(): JSX.Element {
       aria-label="footer"
       className="grid gap-8 bg-background pb-8 pt-16"
     >
-      <div className="container flex flex-col gap-8 sm:flex-row shadow bg-gray-300 h-screen">
+      <div className="container flex flex-col gap-8 sm:flex-row">
         <div className="grid flex-1 grid-cols-3 gap-4 md:gap-8">
-          <div>
-            <Image
-              alt=" image"
-              src="/images/logo.png"
-              width={310}
-              height={215}
-              className="rounded-t-md"
-            />
-          </div>
           {siteConfig.navItemsFooter.map((item) => (
             <div
               key={item.title}
@@ -60,8 +49,6 @@ export function Footer(): JSX.Element {
               important releases
             </Balancer>
           </p>
-
-          {/* <NewsletterSignUpForm /> */}
         </div>
       </div>
 

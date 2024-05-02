@@ -1,6 +1,10 @@
-import Link from "next/link";
+import { getSession } from "@/actions/auth.actions";
+import { Icons } from "@/components/icons";
+import { Navigation } from "@/components/nav/navigation";
+import { NavigationMobile } from "@/components/nav/navigation-mobile";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,15 +16,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import LogoutForm from "./logout-form";
-
-import { getSession } from "@/actions/auth.actions";
-
-import { Icons } from "@/components/icons";
-import { Navigation } from "@/components/nav/navigation";
-import { NavigationMobile } from "@/components/nav/navigation-mobile";
-import { ThemeToggle } from "@/components/theme-toggle";
 import Image from "next/image";
+import Link from "next/link";
+import LogoutForm from "./logout-form";
 
 export async function Header(): Promise<JSX.Element> {
   const session = await getSession();
@@ -32,7 +30,6 @@ export async function Header(): Promise<JSX.Element> {
           href="/"
           className="flex items-center justify-center gap-2 text-lg font-bold tracking-wide transition-all duration-300 ease-in-out"
         >
-          {/*   <Icons.rocket className="size-6 md:hidden lg:flex" /> */}
           <Image
             src="/images/atec.logo.png"
             width={120}
@@ -40,7 +37,6 @@ export async function Header(): Promise<JSX.Element> {
             alt="atec logo"
             className="ml-4 mt-4 mb-4 "
           />
-          {/* <span className="hidden md:flex">{siteConfig.name}</span> */}
         </Link>
         <Navigation
           navItems={siteConfig.navItems}

@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Icons } from "@/components/icons";
+import Image from "next/image";
 
 interface NavigationMobileProps {
   navItems: NavItem[];
@@ -66,11 +67,13 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
             className="flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
-            <Icons.rocket className="mr-2 size-8" aria-hidden="true" />
-            <span className="text-2xl font-bold leading-none tracking-wide">
-              {siteConfig.name}
-            </span>
-            <span className="sr-only">Home</span>
+            <Image
+              src="/images/atec.logo.png"
+              width={120}
+              height={100}
+              alt="atec logo"
+              className="ml-4 mt-4 mb-4 "
+            />
           </Link>
         </div>
         <div className="flex flex-col gap-4 pl-16 text-xl font-medium leading-none tracking-wide">

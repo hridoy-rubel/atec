@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
-
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-// import { NewsletterSignUpForm } from "@/components/forms/newsletter-signup-form";
 import { Icons } from "@/components/icons";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -51,8 +49,6 @@ export function Footer(): JSX.Element {
               important releases
             </Balancer>
           </p>
-
-          {/* <NewsletterSignUpForm /> */}
         </div>
       </div>
 

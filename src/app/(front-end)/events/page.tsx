@@ -2,6 +2,7 @@ import EventCard from "@/components/shared/event-card";
 import Heading from "@/components/shared/heading";
 import { events } from "@/data/events";
 import { EventType } from "@/types";
+import Link from "next/link";
 
 const EventsPage = () => {
   return (
@@ -17,16 +18,18 @@ const EventsPage = () => {
 
       <main className="container mt-5 grid gap-12 md:gap-5 lg:gap-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-          {events.map((ev: EventType, index: number) => (
+          {events.map((item: EventType, index: number) => (
             <div key={index}>
-              <EventCard
-                date={ev.date}
-                description={ev.description}
-                image={ev.image}
-                location={ev.location}
-                time={ev.time}
-                title={ev.title}
-              />
+              <Link href={`/events/${item?.id}`}>
+                <EventCard
+                  date={item.date}
+                  description={item.description}
+                  image={item.image}
+                  location={item.location}
+                  time={item.time}
+                  title={item.title}
+                />
+              </Link>
             </div>
           ))}
         </div>

@@ -2,6 +2,7 @@ import { EventType } from "@/types";
 
 export const events: EventType[] = [
   {
+    id: "1",
     title: "Picnic 2024",
     date: new Date(),
     time: "10 AM",
@@ -12,6 +13,7 @@ export const events: EventType[] = [
       "https://images.unsplash.com/photo-1613109040830-ffdd96756f5e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
+    id: "2",
     title: "Annual General Meeting",
     date: new Date(),
     time: "8 PM",
@@ -22,6 +24,7 @@ export const events: EventType[] = [
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
+    id: "3",
     title: "Table Tennis Championships",
     date: new Date(),
     time: "8 PM",
@@ -32,6 +35,7 @@ export const events: EventType[] = [
       "https://images.unsplash.com/photo-1511067007398-7e4b90cfa4bc?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
+    id: "4",
     title: "Iftar Mahfil",
     date: new Date(),
     time: "3 PM",
@@ -43,6 +47,7 @@ export const events: EventType[] = [
   },
 
   {
+    id: "5",
     title: "Tea Gathering",
     date: new Date(),
     time: "3 PM",
@@ -54,6 +59,7 @@ export const events: EventType[] = [
   },
 
   {
+    id: " 6",
     title: "Gathering Sport",
     date: new Date(),
     time: "3 PM",

@@ -14,6 +14,7 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import React from "react";
+import Link from "next/link";
 
 export function EventsSection() {
   const plugin = React.useRef(
@@ -40,18 +41,20 @@ export function EventsSection() {
             }}
           >
             <CarouselContent>
-              {events?.map((ev: EventType, index: any) => (
+              {events?.map((item: EventType, index: any) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <EventCard
-                      date={ev.date}
-                      description={ev.description}
-                      image={ev.image}
-                      location={ev.location}
-                      time={ev.time}
-                      title={ev.title}
-                      key={index}
-                    />
+                    <Link href={`/events/${item?.id}`}>
+                      <EventCard
+                        date={item.date}
+                        description={item.description}
+                        image={item.image}
+                        location={item.location}
+                        time={item.time}
+                        title={item.title}
+                        key={index}
+                      />
+                    </Link>
                   </div>
                 </CarouselItem>
               ))}

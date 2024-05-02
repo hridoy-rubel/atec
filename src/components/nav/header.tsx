@@ -1,6 +1,10 @@
-import Link from "next/link";
+import { getSession } from "@/actions/auth.actions";
+import { Icons } from "@/components/icons";
+import { Navigation } from "@/components/nav/navigation";
+import { NavigationMobile } from "@/components/nav/navigation-mobile";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,27 +16,27 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 import LogoutForm from "./logout-form";
-
-import { getSession } from "@/actions/auth.actions";
-
-import { Icons } from "@/components/icons";
-import { Navigation } from "@/components/nav/navigation";
-import { NavigationMobile } from "@/components/nav/navigation-mobile";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export async function Header(): Promise<JSX.Element> {
   const session = await getSession();
 
   return (
     <header className="sticky top-0 z-40 flex h-20 w-full bg-transparent">
-      <div className="container flex items-center justify-between p-4">
+      <div className="container flex items-center justify-between p-10">
         <Link
           href="/"
           className="flex items-center justify-center gap-2 text-lg font-bold tracking-wide transition-all duration-300 ease-in-out"
         >
-          <Icons.rocket className="size-6 md:hidden lg:flex" />
-          <span className="hidden md:flex">{siteConfig.name}</span>
+          <Image
+            src="/images/atec.logo.png"
+            width={120}
+            height={100}
+            alt="atec logo"
+            className="ml-4 mt-4 mb-4 "
+          />
         </Link>
         <Navigation
           navItems={siteConfig.navItems}

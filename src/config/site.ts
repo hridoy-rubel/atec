@@ -1,7 +1,7 @@
 import { type NavItem, type NavItemFooter } from "@/types";
 
 export const siteConfig = {
-  name: "ATEC-Website",
+  /* name: "ATEC-Website", */
   description:
     "Manages the data and events for Association of Tangail Ex-Cadets",
   url: "https://rouzex.com",
@@ -34,79 +34,59 @@ export const siteConfig = {
   navItemsMobile: [],
   navItemsFooter: [
     {
-      title: "Company",
+      title: "Useful Links",
       items: [
         {
-          title: "About",
+          title: "About us",
           href: "/about",
           external: false,
         },
         {
-          title: "Privacy",
-          href: "/privacy",
+          title: "Membership info",
+          href: "/membership",
           external: false,
         },
         {
-          title: "Terms",
-          href: "/tos",
+          title: "Gallery",
+          href: "/gallery",
           external: false,
         },
         {
-          title: "Careers",
-          href: "/careers",
+          title: "Events",
+          href: "/events",
           external: false,
         },
       ],
     },
+
     {
-      title: "Support",
+      title: "Contact Info",
       items: [
         {
-          title: "Docs",
+          title:
+            "Bou Tower (2nd Floor), Akur Takur Para, Zila Sadar Rd, Tangail",
           href: "/docs",
           external: false,
         },
         {
-          title: "FAQ",
-          href: "/faq",
-          external: false,
-        },
-        {
-          title: "Blog",
-          href: "/blog",
-          external: false,
-        },
-        {
-          title: "Contact",
+          title: "+88019187690**",
           href: "/contact",
           external: false,
         },
-      ],
-    },
-    {
-      title: "Inspiration",
-      items: [
+
         {
-          title: "Shadcn",
-          href: "https://ui.shadcn.com/",
-          external: true,
+          title: "+88017327137**",
+          href: "/contact",
+          external: false,
         },
+
         {
-          title: "Taxonomy",
-          href: "https://tx.shadcn.com/",
-          external: true,
-        },
-        {
-          title: "Skateshop",
-          href: "https://skateshop.sadmn.com/",
-          external: true,
-        },
-        {
-          title: "Acme Corp",
-          href: "https://acme-corp.jumr.dev/",
-          external: true,
+          title: "atecofficial@example.com",
+          href: "email",
+          external: false,
         },
       ],
-    },
+    }
+      
   ] satisfies NavItemFooter[],
 };

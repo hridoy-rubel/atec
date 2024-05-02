@@ -12,7 +12,7 @@ const GalleryCard = ({ image, title }: GalleryCardPropTypes) => {
         alt="gallery image"
         src={image}
         width={310}
-        height={0}
+        height={215}
         className="rounded-t-md"
         style={{ width: "100%", height: "auto" }}
       />

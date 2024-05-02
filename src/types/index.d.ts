@@ -46,6 +46,11 @@ export interface GalleryType {
   image: string;
 }
 
+export interface ImageType {
+  title: string;
+  image: string;
+}
+
 export interface SessionData {
   userId?: string;
   username?: string;

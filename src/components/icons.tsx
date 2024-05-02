@@ -279,7 +279,7 @@ export const Icons = {
       <path d="m16 10-4 4-4-4" />
     </svg>
   ),
-  rocket: (props: IconProps) => (
+  /* rocket: (props: IconProps) => (
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
@@ -297,7 +297,7 @@ export const Icons = {
       <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
       <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
     </svg>
-  ),
+  ), */
   sun: (props: IconProps) => (
     <svg
       {...props}

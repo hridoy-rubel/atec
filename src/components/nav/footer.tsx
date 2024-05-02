@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
-
+import Image from "next/image";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaTwitterSquare } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -15,8 +19,33 @@ export function Footer(): JSX.Element {
       aria-label="footer"
       className="grid gap-8 bg-background pb-8 pt-16"
     >
-      <div className="container flex flex-col gap-8 sm:flex-row">
-        <div className="grid flex-1 grid-cols-3 gap-4 md:gap-8">
+      <div className="container flex flex-col gap-8 sm:flex-row  bg-gray-800">
+        <div className="flex-col gap-4 sm:flex sm:w-1/3 xl:pl-24 ">
+          <div>
+            <Image
+              className="w-4/5 rounded-lg"
+              src="/images/logo.png"
+              alt="atec logo"
+              width={350}
+              height={350}
+            />
+          </div>
+
+          <div className="flex items-center space-x-4">
+            {/*   */}
+            <FaFacebookSquare className="w-8 h-8 text-gray-500 hover:text-blue-500 cursor-pointer" />
+            <FaInstagramSquare className="w-8 h-8 text-gray-500 hover:text-purple-500 cursor-pointer" />
+            <FaTwitterSquare className="w-8 h-8 text-gray-500 hover:text-blue-400 cursor-pointer" />
+            <IoLogoYoutube className="w-8 h-8 text-gray-500 hover:text-blue-400 cursor-pointer" />
+          </div>
+          <p className="text-sm font-medium leading-5 tracking-wide lg:text-base 2xl:text-lg mt-8 text-white">
+            <Balancer>
+              You can be connected with us on the following platform like
+              facebook, twitter, pinterest, linkedin. Join us & stay updated...
+            </Balancer>
+          </p>
+        </div>
+        <div className="flex flex-1 flex-cols-4 gap-4 md:gap-8">
           {siteConfig.navItemsFooter.map((item) => (
             <div
               key={item.title}
@@ -42,17 +71,6 @@ export function Footer(): JSX.Element {
               </ul>
             </div>
           ))}
-        </div>
-
-        <div className="hidden flex-col gap-4 sm:flex sm:w-1/3 xl:pl-24">
-          <p className="text-sm font-medium leading-5 tracking-wide lg:text-base 2xl:text-lg">
-            <Balancer>
-              Join our newsletter today to stay up to date on features and
-              important releases
-            </Balancer>
-          </p>
-
-          {/* <NewsletterSignUpForm /> */}
         </div>
       </div>
 

@@ -5,13 +5,9 @@ import { EventType } from "@/types";
 
 const EventsPage = () => {
   return (
-    <section
-      id="event-section"
-      aria-label="event section"
-      className="w-full mb-10"
-    >
+    <section aria-label="event page" className="w-full mb-10">
       <div
-        className="h-20 md:h-24 lg:h-48 bg-cover flex items-center justify-center mb-20"
+        className="h-20 md:h-36 lg:h-48 bg-cover flex items-center justify-center mb-20"
         style={{
           backgroundImage: "url('/images/event-bg.jpg')",
         }}

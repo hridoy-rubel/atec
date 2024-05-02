@@ -1,15 +1,13 @@
-import React from "react";
-import SubHeading from "@/components/shared/sub-heading";
-import { GalleryType } from "@/types";
-import { gallery } from "@/data/gallery";
 import GalleryCard from "@/components/shared/gallery-card";
 import Heading from "@/components/shared/heading";
+import { gallery } from "@/data/gallery";
+import { GalleryType } from "@/types";
 
 const GalleryPage = () => {
   return (
-    <div>
+    <section aria-label="Gallery page" className="w-full mb-10">
       <div
-        className=" bg-cover w-screen h-64 relative container text-center"
+        className="h-20 md:h-36 lg:h-48 bg-cover flex items-center justify-center mb-20"
         style={{
           backgroundImage: 'url("/images/gallery.png")',
         }}
@@ -17,16 +15,16 @@ const GalleryPage = () => {
         <Heading content="ATEC Gallery" />
       </div>
 
-      {/* Gallery part */}
-
-      <div className=" flex flex-wrap justify-center gap-10 m-10 ">
-        {gallery?.map((gk: GalleryType, index: number) => (
-          <div key={index}>
-            <GalleryCard image={gk.image} title={gk.title} />
-          </div>
-        ))}
-      </div>
-    </div>
+      <main className="container mt-5 grid gap-12 md:gap-5 lg:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+          {gallery?.map((gk: GalleryType, index: number) => (
+            <div key={index}>
+              <GalleryCard image={gk.image} title={gk.title} />
+            </div>
+          ))}
+        </div>
+      </main>
+    </section>
   );
 };
 

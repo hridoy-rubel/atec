@@ -4,7 +4,7 @@ import moment from "moment";
 import Image from "next/image";
 import card from "../../.././../../public/images/card2.jpg";
 import { Button } from "@/components/ui/button";
-
+import { FaLocationDot } from "react-icons/fa6";
 const EventDetails = () => {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -16,14 +16,14 @@ const EventDetails = () => {
     date: 6,
     hour: 17,
     minute: 0,
-  }); // Event start time: May 10th, 5:00 PM
+  });
 
   const eventEndTime = moment().set({
     month: 5,
     date: 6,
     hour: 23,
     minute: 0,
-  }); // Event end time: May 10th, 9:00 PM
+  });
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -53,17 +53,17 @@ const EventDetails = () => {
   }, []);
 
   return (
-    <>
+    <section id="event-section" aria-label="event section" className="w-full">
       <div className="w-full h-screen">
         <Image
-          src="/images/card2.jpg"
+          src="/images/card.jpg"
           alt="banner"
           width={100}
           height={50}
           className="h-1/2 w-full"
         />
       </div>
-      
+
       <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg overflow-hidden m-8 mr-8">
         <div className="p-4">
           <div className="flex items-center justify-between">
@@ -76,37 +76,36 @@ const EventDetails = () => {
               <h1 className="text-gray-600 font-bold">05</h1>
               <p className="text-gray-600 text-center">Friday</p>
             </div>
-            <div className="text-gray-600 text-center font-bold">
-              <h3> End Time:</h3>
+            <div className="text-red-600 text-center font-bold">
+              <h3> End Time</h3>
               {moment(eventEndTime).format("h:mm A")}
             </div>
           </div>
 
-          <div className="container flex justify-center m-2 gap-6 p-4 bg-red-300 shadow rounded">
-            <div className="text-gray-600 text-center">
-              <p className="text-gray-600">{days} </p>
-              <span className="text-gray-600">days,</span>
-            </div>
-            <div className="text-gray-600 text-center">
-              <p className="text-gray-600">{hours}:</p>
-              <span className="text-gray-600">hours,</span>
-            </div>
+          <div className="timer-wrapper">
+            <div className="timer-inner">
+              <div className="timer-segment h-14 w-24 bg-green-500">
+                <span className="time">{days}</span>
+                <span className="label">Days</span>
+              </div>
+              <span className="divider">:</span>
+              <div className="timer-segment h-14 w-24 bg-red-500">
+                <span className="time">{hours}</span>
+                <span className="label">Hours</span>
+              </div>
+              <span className="divider">:</span>
 
-            <div className="text-gray-600 text-center">
-              <p className="text-gray-600">{minute}: </p>
-              <span className="text-gray-600">minutes,</span>
-            </div>
-
-            <div className="text-gray-600 text-center">
-              <p className="text-gray-600">{second} seconds</p>
-              <span className="text-gray-600">seconds</span>
+              <div className="timer-segment h-14 w-24 bg-blue-500">
+                <span className="time">{minute}</span>
+                <span className="label">Mins</span>
+              </div>
+              <span className="divider">:</span>
+              <div className="timer-segment h-14 w-24 bg-yellow-500">
+                <span className="time">{second}</span>
+                <span className="label">Sec</span>
+              </div>
             </div>
           </div>
-
-          {/* <p className="text-gray-600 text-center">
-            Current Time: {currentTime}
-          </p> */}
-
           <div className="animate-fade-up mt-4  text-center">
             <Button className="h-12 border bg-gradient-to-br from-pink-600/70 to-purple-400/70 text-lg font-bold tracking-wide hover:opacity-70">
               View Registration Fee
@@ -114,7 +113,24 @@ const EventDetails = () => {
           </div>
         </div>
       </div>
-    </>
+
+      <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg sm:bg-white text-black overflow-hidden m-8 mr-8 ">
+        <div className="p-4">
+          <h2 className="font-bold mb-2">Location</h2>
+          <div className="flex items-center justify-center">
+            <FaLocationDot className="size-8 mb-10" />
+            <p className="ml-2">
+              {" "}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+              suscipit iure vitae distinctio et tempore perferendis sapiente
+              dolore quae eligendi?
+            </p>
+          </div>
+
+          {/* Add any additional content for the second card */}
+        </div>
+      </div>
+    </section>
   );
 };
 

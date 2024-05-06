@@ -80,3 +80,41 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.timer-wrapper {
+  background-color: rgba(244, 86, 86, 0.8);
+  padding: 1rem;
+  border: solid 2px white;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.timer-inner {
+  color: #333;
+  display: flex;
+  border: solid 2px #fff;
+  padding: 2rem;
+  background-color: rgba(256, 256, 256, 0.8);
+  border-radius: 5px;
+}
+
+.timer-segment {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.divider
+.time {
+  font-size: 7rem;
+  font-size: large;
+}
+
+.divider {
+  padding:  1rem;
+  
+}
+
+.label {
+  font-size: 20px;
+}

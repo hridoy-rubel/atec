@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
-import { FaFacebook } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaTwitterSquare } from "react-icons/fa";
-import { FaSquareWhatsapp } from "react-icons/fa6";
+import { BsTwitterX } from "react-icons/bs";
+import { BsWhatsapp } from "react-icons/bs";
+import { BsYoutube } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
 import { DoubleArrowRightIcon } from "@radix-ui/react-icons";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdPhoneInTalk } from "react-icons/md";
@@ -19,91 +19,136 @@ export function Footer(): JSX.Element {
     <footer
       id="footer"
       aria-label="footer"
-      className="grid gap-8 bg-border pb-8 pt-16"
+      className="bg-background pb-8 pt-16"
     >
-      <div className="container  lg:flex bg-border justify-between">
-        <div className="ml-10 mb-10 lg:mr-14">
-          <Image src="/images/logo.png" alt="logo" height={500} width={400} />
+      <div className="container lg:grid lg:grid-cols-2">
+        <div className="md:flex md:justify-between md:items-center">
+          <div className="mt-8 md:flex-1">
+            <Image src="/images/logo.png" alt="logo" height={500} width={400} />
+          </div>
+
+          <div className="flex flex-col justify-center items-center gap-5 md:flex-1">
+            <p className="text-center">
+              You can be connected with us on the following platform like
+              facebook, twitter, pinterest, linkedin. Join us & stay updated...
+            </p>
+            <div className="flex gap-5">
+              <Link
+                href={"/"}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({ size: "icon", variant: "ghost" }),
+                  "rounded-full"
+                )}
+              >
+                <BsFacebook className="size-[28px]" />
+              </Link>
+
+              <Link
+                href={"/"}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({ size: "icon", variant: "ghost" }),
+                  "rounded-full"
+                )}
+              >
+                <BsYoutube className="size-[28px]" />
+              </Link>
+
+              <Link
+                href={"/"}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({ size: "icon", variant: "ghost" }),
+                  "rounded-full"
+                )}
+              >
+                <BsTwitterX className="size-[28px]" />
+              </Link>
+
+              <Link
+                href={"/"}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({ size: "icon", variant: "ghost" }),
+                  "rounded-full"
+                )}
+              >
+                <BsWhatsapp className="size-[28px]" />
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="md:mr-10 lg:mr-20">
-          <p className="font-normal leading-8 mb-12 descri">
-            You can be connected with us on the following <br />
-            platform like facebook, twitter, pinterest, linkedin. Join us & stay
-            updated...
-          </p>
-          <span className="flex gap-5 pb-8">
-            <FaFacebook className="cursor-pointer h-10 w-10  hover:text-blue-600  bg-slate-400 rounded" />
 
-            <FaYoutube className="cursor-pointer hover:text-blue-600 h-10 w-10 bg-slate-400  rounded" />
+        <div className="md:grid md:grid-cols-2">
+          <div className="mt-8 md:flex md:justify-center">
+            <ul>
+              <h1 className="font-bold text-400 mb-5">Useful Links</h1>
+              <Link href="/about">
+                <li className="flex gap-2 hover:text-blue-600 mb-4 items-center">
+                  <DoubleArrowRightIcon />
+                  About Us
+                </li>
+              </Link>
 
-            <FaTwitterSquare className="cursor-pointer hover:text-blue-600 h-10 w-10 bg-slate-400 rounded" />
+              <Link href="/gallery">
+                <li className="flex gap-2 hover:text-blue-600 mb-4 items-center">
+                  <DoubleArrowRightIcon />
+                  Gallery
+                </li>
+              </Link>
 
-            <FaSquareWhatsapp className="cursor-pointer hover:text-blue-600 h-10 w-10 bg-slate-400 rounded" />
-          </span>
-        </div>
+              <Link href="/events">
+                <li className="flex gap-2 hover:text-blue-600 mb-4 items-center">
+                  <DoubleArrowRightIcon />
+                  Events
+                </li>
+              </Link>
 
-        <div className="md:mr-10 lg:mr-20">
-          <ul className="mb-10">
-            <h1 className="font-bold text-400 pb-10">Useful Links</h1>
-            <Link href="/about">
-              <li className="flex gap-2 hover:text-blue-600 pb-6">
-                <DoubleArrowRightIcon />
-                About Us
-              </li>
-            </Link>
+              <Link href="/membership">
+                <li className="flex gap-2 hover:text-blue-600 mb-4 items-center">
+                  <DoubleArrowRightIcon />
+                  Membership
+                </li>
+              </Link>
+            </ul>
+          </div>
 
-            <Link href="/gallery">
-              <li className="flex gap-2 hover:text-blue-600 pb-6">
-                <DoubleArrowRightIcon />
-                Gallery
+          <div className="mt-8 md:flex md:justify-center">
+            <ul>
+              <h1 className="font-bold text-400 mb-5 ml-6">Contact Info</h1>
+              <li className="flex gap-2 mb-4 items-center">
+                <IoLocationSharp className="lg:text-3xl md:text-2xl text-xl" />
+                Bou Tower (2nd Floor), Akur Takur Para, Zila Sadar Rd, Tangail
               </li>
-            </Link>
-
-            <Link href="/events">
-              <li className="flex gap-2 hover:text-blue-600 pb-6">
-                <DoubleArrowRightIcon />
-                Events
-              </li>
-            </Link>
-
-            <Link href="/membership">
-              <li className="flex gap-2 hover:text-blue-600 pb-6">
-                <DoubleArrowRightIcon />
-                Membership
-              </li>
-            </Link>
-          </ul>
-        </div>
-        <div className="md:mr-10">
-          <ul>
-            <h1 className="font-bold text-400 pb-10">Contact Info</h1>
-            <li className="flex gap-2 pb-6">
-              <IoLocationSharp />
-              Bou Tower (2nd Floor), Akur Takur Para, Zila Sadar Rd, Tangail
-            </li>
-            <Link href="">
-              <li className="flex gap-2 pb-6 hover:text-blue-600">
-                <MdPhoneInTalk />
-                +88019187690**
-              </li>
-            </Link>
-            <Link href="">
-              <li className="flex gap-2 pb-6 hover:text-blue-600">
-                <MdPhoneInTalk />
-                +88013645690**
-              </li>
-            </Link>
-            <Link href="">
-              <li className="flex gap-2 pb-6 hover:text-blue-600">
-                <CgMail />
-                atecofficial@example.com
-              </li>
-            </Link>
-          </ul>
+              <Link href="">
+                <li className="flex gap-2 mb-4 hover:text-blue-600 items-center">
+                  <MdPhoneInTalk />
+                  +88019187690**
+                </li>
+              </Link>
+              <Link href="">
+                <li className="flex gap-2 mb-4 hover:text-blue-600 items-center">
+                  <MdPhoneInTalk />
+                  +88013645690**
+                </li>
+              </Link>
+              <Link href="">
+                <li className="flex gap-2 mb-4 hover:text-blue-600 items-center">
+                  <CgMail />
+                  atecofficial@example.com
+                </li>
+              </Link>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className="container flex items-center justify-between">
+      <div className="container flex items-center justify-between mt-8">
         <p className="text-sm text-muted-foreground xl:text-base">
           <Balancer>
             Built in by{" "}

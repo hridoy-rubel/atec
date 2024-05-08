@@ -64,7 +64,7 @@ export function Navigation({}: NavigationProps): JSX.Element {
                     <DropdownMenuGroup>
                       <DropdownMenuItem>
                         <span className="hover:text-blue-700 font-semibold ">
-                          <Link href="/presentexecutive">
+                          <Link href="/present-executive-committee">
                             Present Executive <br />
                             Commitee
                           </Link>
@@ -73,7 +73,7 @@ export function Navigation({}: NavigationProps): JSX.Element {
 
                       <DropdownMenuItem>
                         <span className="hover:text-blue-700 font-semibold">
-                          <Link href="/allexecutive">
+                          <Link href="/all-executive-committee">
                             All Executive <br />
                             Commitee
                           </Link>
@@ -82,7 +82,9 @@ export function Navigation({}: NavigationProps): JSX.Element {
 
                       <DropdownMenuItem>
                         <span className="hover:text-blue-700 font-semibold">
-                          <Link href="/batch">Batch Representative</Link>
+                          <Link href="/batch-representatives">
+                            Batch Representatives
+                          </Link>
                         </span>
                       </DropdownMenuItem>
 

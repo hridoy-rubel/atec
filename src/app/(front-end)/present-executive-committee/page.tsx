@@ -21,15 +21,13 @@ const ExecutivePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-4 mt-4 gap-8">
           {pecomittee.map((item: ExecutiveType, index: number) => (
             <div key={index}>
-              <Link href={`/allexecutive/${item?.id}`}>
-                <ExecutiveCard
-                  name={item.name}
-                  position={item.position}
-                  image={item.image}
-                  ccr={item.ccr}
-                  session={item.session}
-                />
-              </Link>
+              <ExecutiveCard
+                name={item.name}
+                position={item.position}
+                image={item.image}
+                ccr={item.ccr}
+                session={item.session}
+              />
             </div>
           ))}
         </div>

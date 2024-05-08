@@ -2,7 +2,7 @@ import { getSession } from "@/actions/auth.actions";
 import { Icons } from "@/components/icons";
 import { Navigation } from "@/components/nav/navigation";
 import { NavigationMobile } from "@/components/nav/navigation-mobile";
-import { ThemeToggle } from "@/components/theme-toggle";
+import ThemeToggle from "@/components/theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -31,7 +31,7 @@ export async function Header(): Promise<JSX.Element> {
           className="flex items-center justify-center gap-2 text-lg font-bold tracking-wide transition-all duration-300 ease-in-out"
         >
           <Image
-            src="/images/atec.logo.png"
+            src="/images/atec-logo.png"
             width={120}
             height={100}
             alt="atec logo"

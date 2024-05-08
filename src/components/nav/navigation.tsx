@@ -36,6 +36,7 @@ export function Navigation({
             </Link>
           </NavigationMenuItem>
         ))}
+
         {isLoggedIn && (
           <>
             <NavigationMenuItem key="dashboard" asChild>

@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
 
-export function ThemeToggle(): JSX.Element {
+const ThemeToggle = (): JSX.Element => {
   const { setTheme, theme } = useTheme();
 
   return (
@@ -13,6 +13,7 @@ export function ThemeToggle(): JSX.Element {
       variant="navbarIcon"
       size="icon"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      className="hover:rounded-full"
     >
       <SunIcon
         className="size-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
@@ -25,4 +26,6 @@ export function ThemeToggle(): JSX.Element {
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
-}
+};
+
+export default ThemeToggle;

@@ -59,3 +59,12 @@ export interface SessionData {
   image?: string;
   isLoggedIn: boolean;
 }
+
+export interface ExecutiveType {
+  id: string;
+  name: string;
+  position: string;
+  ccr: string;
+  session: string;
+  image: string;
+}

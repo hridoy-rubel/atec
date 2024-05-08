@@ -1,119 +1,31 @@
-"use client";
-import { useEffect, useState } from "react";
-import moment from "moment";
-import Image from "next/image";
-import card from "../../.././../../public/images/card2.jpg";
-import { Button } from "@/components/ui/button";
 import { FaLocationDot } from "react-icons/fa6";
+import EventContactCard from "@/components/shared/event-contact-card";
+import EventTimer from "@/components/shared/event-timer";
+import Image from "next/image";
+import EventJourney from "@/components/shared/event-journey";
+
 const EventDetails = () => {
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minute, setMinute] = useState(0);
-  const [second, setSecond] = useState(0);
-  const [currentTime, setCurrentTime] = useState(moment().format("HH:mm:ss"));
-  const eventStartTime = moment().set({
-    month: 5,
-    date: 6,
-    hour: 17,
-    minute: 0,
-  });
-
-  const eventEndTime = moment().set({
-    month: 5,
-    date: 6,
-    hour: 23,
-    minute: 0,
-  });
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const target = new Date("06/05/2024 20:29:00");
-      const now = new Date();
-      const difference = target.getTime() - now.getTime();
-      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-      setDays(d);
-
-      const h = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      setHours(h);
-
-      const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      setMinute(m);
-
-      const s = Math.floor((difference % (1000 * 60)) / 1000);
-      setSecond(s);
-
-      if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
-        clearInterval(intervalId);
-      }
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
   return (
-    <section id="event-section" aria-label="event section" className="w-full">
-      <div className="w-full h-screen">
+    <section
+      id="about-section"
+      aria-label="about us section"
+      className="w-full mb-10"
+    >
+       
+      <div className="w-full ">
         <Image
-          src="/images/card.jpg"
+          src="/images/about.jpg"
           alt="banner"
           width={100}
           height={50}
-          className="h-1/2 w-full"
+          className="h-screen w-full"
         />
       </div>
-
-      <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg overflow-hidden m-8 mr-8">
-        <div className="p-4">
-          <div className="flex items-center justify-between">
-            <div className="text-sm text-gray-600 font-bold">
-              <h3>Start Time</h3>
-              {moment(eventStartTime).format("h:mm A")}
-            </div>
-            <div className="mb-4">
-              <h3 className="text-gray-600 text-center">June</h3>
-              <h1 className="text-gray-600 font-bold">05</h1>
-              <p className="text-gray-600 text-center">Friday</p>
-            </div>
-            <div className="text-red-600 text-center font-bold">
-              <h3> End Time</h3>
-              {moment(eventEndTime).format("h:mm A")}
-            </div>
-          </div>
-
-          <div className="timer-wrapper">
-            <div className="timer-inner">
-              <div className="timer-segment h-14 w-24 bg-green-500">
-                <span className="time">{days}</span>
-                <span className="label">Days</span>
-              </div>
-              <span className="divider">:</span>
-              <div className="timer-segment h-14 w-24 bg-red-500">
-                <span className="time">{hours}</span>
-                <span className="label">Hours</span>
-              </div>
-              <span className="divider">:</span>
-
-              <div className="timer-segment h-14 w-24 bg-blue-500">
-                <span className="time">{minute}</span>
-                <span className="label">Mins</span>
-              </div>
-              <span className="divider">:</span>
-              <div className="timer-segment h-14 w-24 bg-yellow-500">
-                <span className="time">{second}</span>
-                <span className="label">Sec</span>
-              </div>
-            </div>
-          </div>
-          <div className="animate-fade-up mt-4  text-center">
-            <Button className="h-12 border bg-gradient-to-br from-pink-600/70 to-purple-400/70 text-lg font-bold tracking-wide hover:opacity-70">
-              View Registration Fee
-            </Button>
-          </div>
-        </div>
+      <div className="mt-8">
+      <EventJourney />
       </div>
-
+     
+      <EventTimer />
       <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg sm:bg-white text-black overflow-hidden m-8 mr-8 ">
         <div className="p-4">
           <h2 className="font-bold mb-2">Location</h2>
@@ -126,10 +38,11 @@ const EventDetails = () => {
               dolore quae eligendi?
             </p>
           </div>
-
-          {/* Add any additional content for the second card */}
         </div>
       </div>
+      <EventContactCard /> 
+     
+
     </section>
   );
 };

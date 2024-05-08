@@ -82,18 +82,20 @@
 }
 
 .timer-wrapper {
-  background-color: rgba(244, 86, 86, 0.8);
-  padding: 1rem;
-  border: solid 2px white;
-  border-radius: 5px;
+  background-color: rgba(253, 241, 241, 0.945);
+  display: flex;
+  font-size: larger;
+  padding: 0.5rem;
+  border: solid 2px rgb(250, 243, 250);
+  border-radius: 8px;
   z-index: 2;
 }
 
 .timer-inner {
-  color: #333;
+  color: black;
   display: flex;
-  border: solid 2px #fff;
-  padding: 2rem;
+  border: solid 3px #faf3f3;
+  padding: 2.5rem;
   background-color: rgba(256, 256, 256, 0.8);
   border-radius: 5px;
 }
@@ -104,17 +106,17 @@
   text-align: center;
 }
 
-.divider
+.divider,
 .time {
   font-size: 7rem;
   font-size: large;
 }
 
 .divider {
-  padding:  1rem;
-  
+  padding: 1rem;
 }
 
 .label {
   font-size: 20px;
+  text-align: center;
 }

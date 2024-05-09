@@ -21,14 +21,14 @@ export function Footer(): JSX.Element {
       aria-label="footer"
       className="bg-background pb-8 pt-16"
     >
-      <div className="container lg:grid lg:grid-cols-2">
+      <div className="container lg:grid lg:grid-cols-2 ">
         <div className="md:flex md:justify-between md:items-center">
           <div className="mt-8 md:flex-1">
             <Image src="/images/logo.png" alt="logo" height={500} width={400} />
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-5 md:flex-1">
-            <p className="text-center">
+          <div className="flex flex-col justify-center items-center gap-12 md:flex-1 lg:mb-28">
+            <p className="text-center lg:leading-7">
               You can be connected with us on the following platform like
               facebook, twitter, pinterest, linkedin. Join us & stay updated...
             </p>

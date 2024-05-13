@@ -9,7 +9,6 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import type { NavItem } from "@/types";
 import Link from "next/link";
 
 interface NavigationProps {
@@ -133,11 +132,7 @@ export function Navigation({ isLoggedIn }: NavigationProps): JSX.Element {
               <NavigationMenuTrigger>Membership</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="p-2 px-4">
-                  <Link
-                    href="/membership/membership-apply"
-                    legacyBehavior
-                    passHref
-                  >
+                  <Link href="/membership-apply" legacyBehavior passHref>
                     <NavigationMenuLink
                       className={cn(
                         navigationMenuTriggerStyle(),
@@ -148,11 +143,7 @@ export function Navigation({ isLoggedIn }: NavigationProps): JSX.Element {
                     </NavigationMenuLink>
                   </Link>
 
-                  <Link
-                    href="/membership/membership-fee"
-                    legacyBehavior
-                    passHref
-                  >
+                  <Link href="/membership-fee" legacyBehavior passHref>
                     <NavigationMenuLink
                       className={cn(
                         navigationMenuTriggerStyle(),

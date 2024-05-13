@@ -38,10 +38,7 @@ export async function Header(): Promise<JSX.Element> {
             className="ml-4 mt-4 mb-4 "
           />
         </Link>
-        <Navigation
-          navItems={siteConfig.navItems}
-          isLoggedIn={session?.isLoggedIn}
-        />
+        <Navigation isLoggedIn={session?.isLoggedIn} />
         <div className="flex items-center justify-center">
           <ThemeToggle />
           <NavigationMobile navItems={siteConfig.navItems} />

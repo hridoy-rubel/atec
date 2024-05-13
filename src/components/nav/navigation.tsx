@@ -1,64 +1,156 @@
 "use client";
-
-import * as React from "react";
-import Link from "next/link";
-import type { NavItem } from "@/types";
-
-import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
+import type { NavItem } from "@/types";
+import Link from "next/link";
 
 interface NavigationProps {
   navItems: NavItem[];
   isLoggedIn: boolean;
 }
 
-export function Navigation({
-  navItems,
-  isLoggedIn,
-}: NavigationProps): JSX.Element {
+export function Navigation({}: NavigationProps): JSX.Element {
   return (
-    <NavigationMenu className="hidden transition-all duration-300 ease-in-out md:flex">
+    <NavigationMenu className="hidden transition-all duration-300 ease-in-out md:flex  ">
       <NavigationMenuList>
-        {navItems.map((item) => (
-          <NavigationMenuItem key={item.title} asChild>
-            <Link href={item.href} legacyBehavior passHref>
-              <NavigationMenuLink
-                className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
-              >
-                {item.title}
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        ))}
+        <NavigationMenuItem key="home" asChild>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent hover:text-blue-700 font-semibold"
+              )}
+            >
+              Home
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
 
-        {isLoggedIn && (
-          <>
-            <NavigationMenuItem key="dashboard" asChild>
-              <Link href="/dashboard" legacyBehavior passHref>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>About ATEC</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="p-2 px-4">
+              <Link href="/present-executive-committee" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:text-blue-700 font-semibold"
+                  )}
                 >
-                  Dashboard
+                  Present Executive Committee
                 </NavigationMenuLink>
               </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem key="membership" asChild>
-              <Link href="/membership" legacyBehavior passHref>
+
+              <Link href="/all-executive-committee" legacyBehavior passHref>
                 <NavigationMenuLink
-                  className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:text-blue-700 font-semibold"
+                  )}
                 >
-                  Membership
+                  All Executive Committee
                 </NavigationMenuLink>
               </Link>
-            </NavigationMenuItem>
-          </>
-        )}
+
+              <Link href="/batch-representatives" legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:text-blue-700 font-semibold"
+                  )}
+                >
+                  Batch Representatives
+                </NavigationMenuLink>
+              </Link>
+
+              <Link href="/constitution" legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:text-blue-700 font-semibold"
+                  )}
+                >
+                  Constitution
+                </NavigationMenuLink>
+              </Link>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem key="gallery" asChild>
+          <Link href="/gallery" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent hover:text-blue-700 font-semibold"
+              )}
+            >
+              Gellery
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem key="events" asChild>
+          <Link href="/events" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent hover:text-blue-700 font-semibold"
+              )}
+            >
+              Event
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem key="dashboard" asChild>
+          <Link href="/dashboard" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent hover:text-blue-700 font-semibold"
+              )}
+            >
+              Dashboard
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem key="membership">
+          <NavigationMenuTrigger>Membership</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="p-2 px-4">
+              <Link href="/membership/membership-apply" legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:text-blue-700 font-semibold"
+                  )}
+                >
+                  Apply for Membership
+                </NavigationMenuLink>
+              </Link>
+
+              <Link href="/membership/membership-fee" legacyBehavior passHref>
+                <NavigationMenuLink
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "bg-transparent hover:text-blue-700 font-semibold"
+                  )}
+                >
+                  Membership Fee
+                </NavigationMenuLink>
+              </Link>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );

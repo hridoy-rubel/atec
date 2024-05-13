@@ -16,11 +16,11 @@ const ExecutiveCard = ({
   session,
 }: ExecutiveCardPropsTypes) => {
   return (
-    <main className="container">
-      <div className="py-2  bg-[#ef2db5e6] rounded-md shadow-lg ">
-        <div className="flex justify-center w-full bg-top bg-cover rounded-t my-2">
+    <main className="container transform hover:scale-105 duration-500">
+      <div className="py-2  bg-gradient-to-tr from-blue-300 to-gray-500 bg-gray-400 rounded-md shadow-lg ">
+        <div className="flex justify-center w-full bg-top bg-cover ron3ded-t my-2">
           <Image
-            className="rounded-full w-24 h-24 border-4 "
+            className="rounded-full w-24 h-24 border-4"
             src="/images/avatars/Rubell.jpg"
             alt="Profile"
             height={200}

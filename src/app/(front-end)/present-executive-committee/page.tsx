@@ -2,7 +2,6 @@ import ExecutiveCard from "@/components/dropdown/pecommitee-card";
 import Heading from "@/components/shared/heading";
 import { pecomittee } from "@/data/pecommitee";
 import { ExecutiveType } from "@/types";
-import Link from "next/link";
 import React from "react";
 
 const ExecutivePage = () => {

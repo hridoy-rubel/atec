@@ -27,8 +27,8 @@ export function Footer(): JSX.Element {
             <Image src="/images/logo.png" alt="logo" height={500} width={400} />
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-12 md:flex-1 lg:mb-32">
-            <p className="text-center lg:leading-8">
+          <div className="flex flex-col justify-center items-center gap-12 md:flex-1 lg:mb-12">
+            <p className="text-center lg:leading-6 ">
               You can be connected with us on the following platform like
               facebook, twitter, pinterest, linkedin. Join us & stay updated...
             </p>

@@ -54,15 +54,16 @@ const EventTimer = () => {
     <section id="event-section" aria-label="event section" className="w-full">
       <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg overflow-hidden m-8 mr-8 font-bold">
         <div className="p-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between ">
             <div className="text-sm text-gray-600 font-bold">
               <h3>Start Time</h3>
               {moment(eventStartTime).format("h:mm A")}
             </div>
-            <div className="mb-4">
-              <h3 className="text-gray-600 text-center">June</h3>
-              <h1 className="text-gray-600 font-bold">03</h1>
-              <p className="text-gray-600 text-center">Friday</p>
+
+            <div className="mb-4 ">
+              <h3 className="text-blue-700 text-center text-xl ">June</h3>
+              <h1 className="text-blue-700 font-bold text-xl">03</h1>
+              <p className="text-blue-700 text-center text-xl">Friday</p>
             </div>
             <div className="text-red-600 text-center font-bold">
               <h3> End Time</h3>
@@ -70,59 +71,53 @@ const EventTimer = () => {
             </div>
           </div>
 
-          <div className="timer-wrapper">
+          <div className="timer-wrapper bg-gradient-to-rbg-gradient-to-r from-green-400 to-blue-500">
             <div className="timer-inner">
-              <div className="timer-wrapper">
+              <div className="timer-wrapper bg-gradient-to-r from-green-400 to-blue-500">
                 <div className="timer-row">
-                  <div className="timer-segment h-8 w-20 bg-white">
+                  <h1 className="timer-segment h-8 w-20">
                     <span className="time">{Math.floor(hours / 10)}</span>
-                  </div>
-                  <div className="timer-segment h-8 w-20 bg-white">
+                  </h1>
+                  <h1 className="timer-segment h-8 w-20 ">
                     <span className="time">{days % 10}</span>
                     <span className="label p-4 mr-8 text-red">Days</span>
-                  </div>
+                  </h1>
                 </div>
-              </div>
 
-              <div className="timer-wrapper">
                 <div className="timer-row">
-                  <div className="timer-segment h-8 w-20 bg-white">
+                  <h1 className="timer-segment h-8 w-20 ">
                     <span className="time">{Math.floor(hours / 10)}</span>
-                  </div>
-                  <div className="timer-segment h-8 w-20 bg-white">
+                  </h1>
+                  <h1 className="timer-segment h-8 w-20 ">
                     <span className="time">{hours % 10}</span>
                     <span className="label p-4 mr-8">Hours</span>
-                  </div>
+                  </h1>
                 </div>
-              </div>
 
-              <div className="timer-wrapper">
                 <div className="timer-row">
-                  <div className="timer-segment h-8 w-20 bg-white">
+                  <h1 className="timer-segment h-8 w-20 ">
                     <span className="time">{Math.floor(minute / 10)}</span>
-                  </div>
-                  <div className="timer-segment h-8 w-20 bg-white">
+                  </h1>
+                  <h1 className="timer-segment h-8 w-20 ">
                     <span className="time">{minute % 10}</span>
                     <span className="label p-4 mr-8">Mins</span>
-                  </div>
+                  </h1>
                 </div>
-              </div>
 
-              <div className="timer-wrapper">
                 <div className="timer-row">
-                  <div className="timer-segment h-8 w-20 bg-white">
+                  <h1 className="timer-segment h-8 w-20 ">
                     <span className="time">{Math.floor(second / 10)}</span>
-                  </div>
-                  <div className="timer-segment h-8 w-20 bg-white">
+                  </h1>
+                  <h1 className="timer-segment h-8 w-20 ">
                     <span className="time">{second % 10}</span>
                     <span className="label p-4 mr-8">Sec</span>
-                  </div>
+                  </h1>
                 </div>
               </div>
             </div>
           </div>
           <div className="animate-fade-up mt-4  text-center">
-            <Button className="h-12 border bg-gradient-to-br from-pink-600/70 to-purple-400/70 text-lg font-bold tracking-wide hover:opacity-70">
+            <Button className="h-12 border bg-gradient-to-r from-green-400 to-blue-500 text-lg font-bold tracking-wide hover:opacity-70">
               View Registration Fee
             </Button>
           </div>

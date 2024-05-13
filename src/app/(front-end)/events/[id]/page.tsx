@@ -3,8 +3,20 @@ import EventContactCard from "@/components/shared/event-contact-card";
 import EventTimer from "@/components/shared/event-timer";
 import Image from "next/image";
 import EventJourney from "@/components/shared/event-journey";
+import React from 'react';
+
 
 const EventDetails = () => {
+  const containerStyle = {
+    width: '400px',
+    height: '400px'
+  };
+  
+  const center = {
+    lat: -34.397,
+    lng: 150.644
+  };
+
   return (
     <section
       id="about-section"
@@ -48,3 +60,5 @@ const EventDetails = () => {
 };
 
 export default EventDetails;
+
+

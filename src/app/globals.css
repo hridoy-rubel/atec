@@ -82,19 +82,19 @@
 }
 
 .timer-wrapper {
-  background-color: rgba(253, 241, 241, 0.945);
+  background: repeating-linear-gradient(rgb(56, 100, 245), rgb(255, 0, 195));
   display: flex;
   font-size: larger;
-  padding: 0.5rem;
+  padding: 6px;
   border: solid 2px rgb(250, 243, 250);
   border-radius: 8px;
   z-index: 2;
 }
 
 .timer-inner {
-  color: black;
+  color: rgb(27, 27, 27);
   display: flex;
-  border: solid 3px #faf3f3;
+  border: solid 3px #edd9d9;
   padding: 2.5rem;
   background-color: rgba(256, 256, 256, 0.8);
   border-radius: 5px;

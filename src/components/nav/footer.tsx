@@ -23,7 +23,7 @@ export function Footer(): JSX.Element {
     >
       <div className="container lg:grid lg:grid-cols-2 ">
         <div className="md:flex md:justify-between md:items-center">
-          <div className="mt-8 md:flex-1">
+          <div className="mt-8 md:flex-1 lg:mt-0">
             <Image src="/images/logo.png" alt="logo" height={500} width={400} />
           </div>
 

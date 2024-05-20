@@ -6,6 +6,8 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import SubHeading from "@/components/shared/sub-heading";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+const data = [1, 2, 3, 4, 5];
+
 const EventDetails = () => {
   return (
     <section
@@ -23,83 +25,106 @@ const EventDetails = () => {
         />
       </div>
 
+      <div className="mt-6 container gap-5">
+        <div className="flex justify-between">
+          <div className="w-2/3 mx-2 px-3">
+            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+              {data.map((data: any) => (
+                <div
+                  className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+                  key={data}
+                >
+                  {/* Icon  */}
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                    <svg
+                      className="fill-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="10"
+                    >
+                      <path
+                        fill-rule="nonzero"
+                        d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
+                      />
+                    </svg>
+                  </div>
 
-
-      <div className="container ">
-        <div className="flex items-center">
-          <div className="flex items-center  shadow rounded-full h-16 w-16 bg-teal-400 m-2">
-            <p>09:30AM</p>
-          </div>
-          <div>
-            <ArrowRightIcon />
-          </div>
-          <div className="overflow-hidden shadow-lg mt-6 gap-2 rounded">
-            <h1 className="text-center">Event Start</h1>
-            <p className="m-2">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-              inventore officia veritatis accusantium nam ipsa cum accusamus?
-              Nemo, explicabo consequuntur possimus, enim quia et, omnis minus
-              ratione minima atque iusto.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <EventTimer />
-
-      <div className="rounded overflow-hidden shadow-lg mt-6">
-        <div className="max-w-lg mx-auto shadow-md rounded-lg text-black overflow-hidden m-8 mr-8 px-6">
-          <div className="flex justify-center mt-2 ">
-            <SubHeading content="Contact Person" />
-          </div>
-          <div className="container flex max-w-lg mx-auto shadow-md bg-gradient-to-r from-green-400 to-blue-500 rounded-lg sm:bg-slate-300 text-black overflow-hidden m-8">
-            <div className="mt-8">
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </div>
-            <div className="m-4">
-              <h1>Name: Md Hazrat Ali</h1>
-              <h1>Designation: execative director</h1>
-              <h1>Phone Number: 018******66</h1>
+                  {/* card */}
+                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+                    <div className="flex items-center justify-between space-x-2 mb-1">
+                      <div className="font-bold text-slate-900">
+                        Order Placed
+                      </div>
+                      <time className="font-caveat font-medium text-indigo-500">
+                        08/06/2023
+                      </time>
+                    </div>
+                    <div className="text-slate-500">
+                      Pretium lectus quam id leo. Urna et pharetra aliquam
+                      vestibulum morbi blandit cursus risus.
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="container flex max-w-lg mx-auto bg-gradient-to-r from-pink-600 to-green-500 shadow-md rounded-lg sm:bg-slate-300 text-black overflow-hidden m-8">
-            <div className="mt-8">
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
+          <div className=" w-1/3 px-3 mx-2">
+            <EventTimer />
+            <div className="flex justify-center mt-1 ">
+              <SubHeading content="Contact Person" />
             </div>
-            <div className="m-4">
-              <h1>Name:</h1>
-              <h1>Designation:</h1>
-              <h1>Phone Number:</h1>
-            </div>
-          </div>
 
-          <div className="container flex max-w-lg mx-auto bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-md rounded-lg sm:bg-slate-300 text-black overflow-hidden m-8">
-            <div className="mt-8">
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
+            <div className="container flex max-w-lg mx-auto shadow-md bg-gradient-to-r from-green-400 to-blue-500 rounded-lg sm:bg-slate-300 text-black overflow-hidden m-8">
+              <div className="mt-8">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </div>
+
+              <div className="m-4">
+                <h1>Name: Md Hazrat Ali</h1>
+                <h1>Designation: execative director</h1>
+                <h1>Phone Number: 018******66</h1>
+              </div>
             </div>
-            <div className="m-4">
-              <h1>Name:</h1>
-              <h1>Designation:</h1>
-              <h1>Phone Number:</h1>
+
+            <div className="container flex max-w-lg mx-auto bg-gradient-to-r from-pink-600 to-green-500 shadow-md rounded-lg sm:bg-slate-300 text-black overflow-hidden m-8">
+              <div className="mt-8">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </div>
+              <div className="m-4">
+                <h1>Name:</h1>
+                <h1>Designation:</h1>
+                <h1>Phone Number:</h1>
+              </div>
+            </div>
+
+            <div className="container flex max-w-lg mx-auto bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-md rounded-lg sm:bg-slate-300 text-black overflow-hidden m-8">
+              <div className="mt-8">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </div>
+              <div className="m-4">
+                <h1>Name:</h1>
+                <h1>Designation:</h1>
+                <h1>Phone Number:</h1>
+              </div>
             </div>
           </div>
         </div>
@@ -109,5 +134,3 @@ const EventDetails = () => {
 };
 
 export default EventDetails;
-
-

@@ -1,10 +1,7 @@
-import { FaLocationDot } from "react-icons/fa6";
 import EventTimer from "@/components/shared/event-timer";
-import Image from "next/image";
-import React from "react";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import SubHeading from "@/components/shared/sub-heading";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 
 const data = [1, 2, 3, 4, 5];
 
@@ -50,16 +47,14 @@ const EventDetails = () => {
                   </div>
 
                   {/* card */}
-                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border shadow">
                     <div className="flex items-center justify-between space-x-2 mb-1">
-                      <div className="font-bold text-slate-900">
-                        Order Placed
-                      </div>
+                      <div className="font-bold">Order Placed</div>
                       <time className="font-caveat font-medium text-indigo-500">
                         08/06/2023
                       </time>
                     </div>
-                    <div className="text-slate-500">
+                    <div className="">
                       Pretium lectus quam id leo. Urna et pharetra aliquam
                       vestibulum morbi blandit cursus risus.
                     </div>

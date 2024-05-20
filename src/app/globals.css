@@ -81,42 +81,10 @@
   text-overflow: ellipsis;
 }
 
-.timer-wrapper {
-  background: repeating-linear-gradient(rgb(56, 100, 245), rgb(255, 0, 195));
-  display: flex;
-  font-size: larger;
-  padding: 6px;
-  border: solid 2px rgb(250, 243, 250);
-  border-radius: 8px;
-  z-index: 2;
-}
-
-.timer-inner {
-  color: rgb(27, 27, 27);
-  display: flex;
-  border: solid 3px #edd9d9;
-  padding: 2.5rem;
-  background-color: rgba(256, 256, 256, 0.8);
-  border-radius: 5px;
-}
-
 .timer-segment {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.divider,
-.time {
-  font-size: 7rem;
-  font-size: large;
-}
 
-.divider {
-  padding: 1rem;
-}
-
-.label {
-  font-size: 20px;
-  text-align: center;
-}

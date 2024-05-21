@@ -41,6 +41,15 @@ export interface EventType {
   location: string;
   image: string;
 }
+// types.ts
+export interface ExecutiveType {
+  id: string;
+  name: string;
+  position: string;
+  ccr: string;
+  session: string;
+  image: string;
+}
 
 export interface GalleryType {
   title: string;

@@ -59,3 +59,10 @@ export interface SessionData {
   image?: string;
   isLoggedIn: boolean;
 }
+
+export interface EventContactType {
+  name: string;
+  designation: string;
+  phone: 0;
+  img: string;
+}

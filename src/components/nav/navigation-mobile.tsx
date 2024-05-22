@@ -68,7 +68,7 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
             onClick={() => setIsOpen(false)}
           >
             <Image
-              src="/images/atec.logo.png"
+              src="/images/atec-logo.png"
               width={120}
               height={100}
               alt="atec logo"
@@ -87,6 +87,14 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
               {item.title}
             </MobileLink>
           ))}
+          <MobileLink
+            key={"Dashboard"}
+            href={"/dashboard"}
+            segment={String(segment)}
+            setIsOpen={setIsOpen}
+          >
+            Dashboard
+          </MobileLink>
         </div>
       </SheetContent>
     </Sheet>

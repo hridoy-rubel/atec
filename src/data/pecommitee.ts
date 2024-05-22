@@ -1,0 +1,68 @@
+import { ExecutiveType } from "@/types";
+
+export const pecomittee: ExecutiveType[] = [
+  {
+    id: "1",
+    name: "Name : Nurshad",
+    position: "Bishrampur",
+    ccr: "CCR-1553",
+    session: "2011-2014",
+    image: "",
+  },
+  {
+    id: "2",
+    name: "Name : Murad",
+    position: "Baliadangi",
+    ccr: "CCR-1663",
+    session: "2008-2012",
+    image: "",
+  },
+  {
+    id: "3",
+    name: "Name : Hridoy",
+    position: "Holdibari",
+    ccr: "CCR-1773",
+    session: "2012-2016",
+    image: "",
+  },
+  {
+    id: "4",
+    name: "Name : Shakib",
+    position: "Nekmorod",
+    ccr: "CCR-1883",
+    session: "2006-2010",
+    image: "",
+  },
+  {
+    id: "5",
+    name: "Name : Ajad",
+    position: "Khulna",
+    ccr: "CCR-1993",
+    session: "2004-2010",
+    image: "",
+  },
+  {
+    id: "6",
+    name: "Name : Hakim",
+    position: "Rangpur",
+    ccr: "CCR-1443",
+    session: "2010-2012",
+    image: "",
+  },
+  {
+    id: "7",
+    name: "Name : Masrafi",
+    position: "Ranisonkel",
+    ccr: "CCR-1443",
+    session: "2011-2013",
+    image: "",
+  },
+  {
+    id: "8",
+    name: "Name : Dinajpur",
+    position: "Rangpur",
+    ccr: "CCR-1443",
+    session: "2010-2014",
+    image: "",
+  },
+];

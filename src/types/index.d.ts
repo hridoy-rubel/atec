@@ -60,6 +60,19 @@ export interface SessionData {
   isLoggedIn: boolean;
 }
 
+export interface SideNavItem {
+  title: string;
+  path: string;
+  icon?: JSX.Element;
+  submenu?: boolean;
+  subMenuItems?: SideNavItem[];
+}
+
+export type SideNavItemGroup = {
+  title: string;
+  menuList: SideNavItem[];
+};
+
 export interface EventContactType {
   name: string;
   designation: string;

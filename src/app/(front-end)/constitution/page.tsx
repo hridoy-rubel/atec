@@ -1,6 +1,5 @@
 import SubHeading from "@/components/shared/sub-heading";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 import React from "react";
 
@@ -22,8 +21,6 @@ const Constitution = () => {
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           Please wait
         </Button>
-        <Input type="email" placeholder="Email" className="w-1/4 " />
-        <text "filename" />
       </div>
     </main>
   );

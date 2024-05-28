@@ -15,9 +15,9 @@ export async function middleware(request: NextRequest) {
   }
 
   // If the user is not logged in, allow them to access the login page
-  if (!session.isLoggedIn && request.nextUrl.pathname !== "/login") {
+  /*   if (!session.isLoggedIn && request.nextUrl.pathname !== "/login") {
     return NextResponse.redirect(new URL("/login", request.url));
-  }
+  } */
 }
 
 export const config = {

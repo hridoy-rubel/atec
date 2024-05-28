@@ -13,6 +13,19 @@ export interface NavItem {
   disabled?: boolean;
 }
 
+// types.ts (Type Definition)
+export interface UserData {
+  cadetNo: string;
+  confirmPassword: string;
+  email: string;
+}
+
+// types.ts
+export interface UserData {
+  cadetNo: string;
+  confirmPassword: string;
+}
+
 export interface FrequentlyAskedQuestion {
   question: string;
   answer: string;

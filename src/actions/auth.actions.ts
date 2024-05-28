@@ -10,9 +10,13 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export type RegisterUserParams = {
-  username: string;
   email: string;
   password: string;
+  fullname: string;
+  cadetname: string;
+  cadetno: string;
+  college: string;
+  passoutyear: string;
   confirmPassword: string;
 };
 
@@ -22,9 +26,13 @@ export type LoginUserParams = {
 };
 
 export const RegisterUser = async ({
-  username,
   email,
   password,
+  fullname,
+  cadetname,
+  cadetno,
+  college,
+  passoutyear,
   confirmPassword,
 }: RegisterUserParams): Promise<
   "invalid-input" | "exists" | "error" | "success"
@@ -37,7 +45,7 @@ export const RegisterUser = async ({
     await connectToDatabase();
 
     const user = await User.findOne({
-      $or: [{ username: username }, { email: email }],
+      $or: [{ email: email }],
     });
 
     // Hashing the password
@@ -46,8 +54,13 @@ export const RegisterUser = async ({
 
     const newUser = await User.create({
       email,
-      username,
+      fullname,
+      cadetname,
+      cadetno,
+      college,
+      passoutyear,
       password: hashedPassword,
+      confirmPassword,
       image: "",
     });
 

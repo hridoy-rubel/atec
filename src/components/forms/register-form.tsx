@@ -31,9 +31,13 @@ const RegisterForm = (): JSX.Element => {
   const form = useForm<z.infer<typeof registerFormSchema>>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
-      username: "",
       email: "",
       password: "",
+      fullname: "",
+      cadetname: "",
+      cadetno: "",
+      college: "",
+      passoutyear: "",
       confirmPassword: "",
     },
   });
@@ -41,12 +45,19 @@ const RegisterForm = (): JSX.Element => {
   function onSubmit(formData: z.infer<typeof registerFormSchema>): void {
     startTransition(async () => {
       try {
+        console.log("form data: ", formData);
         const message = await RegisterUser({
-          username: formData.username,
           email: formData.email,
           password: formData.password,
+          fullname: formData.fullname,
+          cadetname: formData.cadetname,
+          cadetno: formData.cadetno,
+          college: formData.college,
+          passoutyear: formData.passoutyear,
           confirmPassword: formData.confirmPassword,
         });
+
+        // console.log("Server response message:", message);
 
         switch (message) {
           case "exists":
@@ -103,20 +114,6 @@ const RegisterForm = (): JSX.Element => {
       >
         <FormField
           control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="username" {...field} />
-              </FormControl>
-              <FormMessage className="pt-2 sm:text-sm" />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
@@ -136,7 +133,7 @@ const RegisterForm = (): JSX.Element => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <PasswordInput placeholder="**********" {...field} />
+                <PasswordInput placeholder="password" {...field} />
               </FormControl>
               <FormMessage className="pt-2 sm:text-sm" />
             </FormItem>
@@ -150,7 +147,77 @@ const RegisterForm = (): JSX.Element => {
             <FormItem>
               <FormLabel>Confirm Password</FormLabel>
               <FormControl>
-                <PasswordInput placeholder="**********" {...field} />
+                <Input placeholder="Confirm Password" {...field} />
+              </FormControl>
+              <FormMessage className="pt-2 sm:text-sm" />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="fullname"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>FullName</FormLabel>
+              <FormControl>
+                <Input placeholder="fullname" {...field} />
+              </FormControl>
+              <FormMessage className="pt-2 sm:text-sm" />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="cadetname"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>CadetName</FormLabel>
+              <FormControl>
+                <Input placeholder="cadetname" {...field} />
+              </FormControl>
+              <FormMessage className="pt-2 sm:text-sm" />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="cadetno"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>CadetNo</FormLabel>
+              <FormControl>
+                <Input placeholder="cadetno" {...field} />
+              </FormControl>
+              <FormMessage className="pt-2 sm:text-sm" />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="college"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>College</FormLabel>
+              <FormControl>
+                <Input placeholder="college" {...field} />
+              </FormControl>
+              <FormMessage className="pt-2 sm:text-sm" />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="passoutyear"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>PassOut Year</FormLabel>
+              <FormControl>
+                <Input placeholder="passoutyear" {...field} />
               </FormControl>
               <FormMessage className="pt-2 sm:text-sm" />
             </FormItem>

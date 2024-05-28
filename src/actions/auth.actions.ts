@@ -11,28 +11,30 @@ import { redirect } from "next/navigation";
 
 export type RegisterUserParams = {
   email: string;
-  password: string;
-  fullname: string;
-  cadetname: string;
-  cadetno: string;
+  cadetName: string;
+  cadetNo: string;
+  fullName: string;
   college: string;
-  passoutyear: string;
+  passoutYear: string;
+  mobileNo: string;
+  password: string;
   confirmPassword: string;
 };
 
 export type LoginUserParams = {
-  username: string;
+  email: string;
   password: string;
 };
 
 export const RegisterUser = async ({
   email,
   password,
-  fullname,
-  cadetname,
-  cadetno,
+  fullName,
+  cadetName,
+  cadetNo,
   college,
-  passoutyear,
+  passoutYear,
+  mobileNo,
   confirmPassword,
 }: RegisterUserParams): Promise<
   "invalid-input" | "exists" | "error" | "success"
@@ -54,13 +56,13 @@ export const RegisterUser = async ({
 
     const newUser = await User.create({
       email,
-      fullname,
-      cadetname,
-      cadetno,
+      cadetName,
+      cadetNo,
+      fullName,
       college,
-      passoutyear,
+      passoutYear,
+      mobileNo,
       password: hashedPassword,
-      confirmPassword,
       image: "",
     });
 
@@ -72,7 +74,7 @@ export const RegisterUser = async ({
 };
 
 export const LoginUser = async ({
-  username,
+  email,
   password,
 }: LoginUserParams): Promise<{
   message: "invalid-input" | "not-exists" | "error" | "success";
@@ -81,13 +83,13 @@ export const LoginUser = async ({
   const session = await getSession();
 
   try {
-    if (!username || !password) {
+    if (!email || !password) {
       return { message: "invalid-input" };
     }
 
     await connectToDatabase();
 
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ email });
 
     if (!existingUser) return { message: "not-exists" };
 

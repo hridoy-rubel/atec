@@ -16,8 +16,6 @@ export const metadata: Metadata = {
 };
 
 const RegisterPage = async (): Promise<JSX.Element> => {
-  // console.log("RegisterPage component is rendering");
-
   return (
     <div className="flex h-auto min-h-screen w-full items-center justify-center md:flex">
       <Card className="max-sm:flex max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">

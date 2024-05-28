@@ -13,6 +13,11 @@ const EventsPage = () => {
           backgroundImage: "url('/images/event-bg.jpg')",
         }}
       >
+        {/* <div className="flex flex-row-reverse  bg-zinc-500 p-10 gap-4 rounded-xl">
+          <div className="bg-red-500 p-3 rounded-sm">1</div>
+          <div className="bg-red-500 p-3  rounded-sm">2</div>
+          <div className="bg-red-500 p-3  rounded-sm">3</div>
+        </div> */}
         <Heading content="ATEC Events" />
       </div>
 

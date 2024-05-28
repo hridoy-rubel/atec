@@ -35,6 +35,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Bugs
+## Bugs and Issues
 
+- Add a required sign (\*) to the input fields
 - Can't go the register page

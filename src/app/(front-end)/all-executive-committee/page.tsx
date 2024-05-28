@@ -1,33 +1,42 @@
+import ExecutiveCard from "@/components/dropdown/pecommitee-card";
+import Heading from "@/components/shared/heading";
+import { pecomittee } from "@/data/pecommitee";
+import { ExecutiveType } from "@/types";
 import React from "react";
 
-const AllExecutive = () => {
+const ExecutivePage = () => {
   return (
-    <section className="container gap-5 ">
-      <div className="grid grid-cols-2 h-screen gap-3 rounded-3xl">
-        <div className="bg-gradient-to-r from-teal-900 text-center translate-x-2 hover:scale-105 duration-500 bg-fuchsia-600">
-          1
-        </div>
-        <div className="bg-blue-700 hover:scale-105 duration-500">2</div>
-        {/* <div
-          className="bg-fuchsia-700 transform:constructor(props) {
-          super(props)
-        
-          this.state = {
-             first
-          }
-        }"
-        >
-          Hover me
-        </div> */}
-        <div className="bg-red-700 hover:scale-110 duration-700 ease-in-out">
-          3
-        </div>
-        <div className="bg-gradient-to-r from-pink-700 to-purple-500 bg-clip-text font-extrabold text-3xl text-transparent">
-          <p>Bangladesh is a small country.</p>
-        </div>
+    <section
+      aria-label="present executive commitee page"
+      className="dark:text-black"
+    >
+      <div
+        className="h-20 md:h-36 lg:h-48 bg-cover flex items-center justify-center mb-20"
+        style={{
+          backgroundImage:
+            'url("/images/marek-piwnicki-4dQPzVVhkME-unsplash.jpg")',
+        }}
+      >
+        <Heading content="All Executive commitee member" />
       </div>
+
+      <main className="container ">
+        <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-4 mt-4 gap-8">
+          {pecomittee.map((item: ExecutiveType, index: number) => (
+            <div key={index}>
+              <ExecutiveCard
+                name={item.name}
+                position={item.position}
+                image={item.image}
+                ccr={item.ccr}
+                session={item.session}
+              />
+            </div>
+          ))}
+        </div>
+      </main>
     </section>
   );
 };
 
-export default AllExecutive;
+export default ExecutivePage;

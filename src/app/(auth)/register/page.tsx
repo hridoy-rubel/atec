@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -17,9 +16,6 @@ export const metadata: Metadata = {
 };
 
 const RegisterPage = async (): Promise<JSX.Element> => {
-  /*   const session = await auth()
-  if (session) redirect(DEFAULT_SIGNIN_REDIRECT) */
-
   return (
     <div className="flex h-auto min-h-screen w-full items-center justify-center md:flex">
       <Card className="max-sm:flex max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
@@ -63,10 +59,8 @@ const RegisterPage = async (): Promise<JSX.Element> => {
               href="/privacy"
               className="font-semibold underline-offset-4 transition-all hover:underline"
             >
-              {" "}
               Privacy Policy
             </Link>
-            .
           </div>
         </CardFooter>
       </Card>

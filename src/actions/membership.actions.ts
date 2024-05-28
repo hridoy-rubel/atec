@@ -1,3 +1,5 @@
+"use server";
+
 import Membership from '@/database/models/membership.model';
 import { connectToDatabase } from "../database";
 import { handleError } from '@/lib/utils';

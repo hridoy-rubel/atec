@@ -120,8 +120,8 @@ export function InputField() {
     <>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className=" lg:flex lg:justify-center md:flex md:justify-center">
-            <div className="lg:w-1/3 md:w-1/3 ml-4">
+          <div className=" lg:flex lg:justify-center lg:gap-4 md:flex md:justify-center md:gap-4 ml-4 mr-4">
+            <div className="lg:w-1/3 md:w-1/3">
               <div className="mb-4 mt-8">
                 <FormField
                   control={form.control}
@@ -147,7 +147,7 @@ export function InputField() {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="text-slate-400">
                             <SelectValue placeholder="Select collage name" />
                           </SelectTrigger>
                         </FormControl>
@@ -181,7 +181,7 @@ export function InputField() {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="text-slate-400">
                             <SelectValue placeholder="Select Membership Category" />
                           </SelectTrigger>
                         </FormControl>
@@ -315,7 +315,7 @@ export function InputField() {
                 />
               </div>
             </div>
-            <div className=" lg:w-1/3 md:w-1/3 ml-4">
+            <div className=" lg:w-1/3 md:w-1/3">
               <div className="mb-4 mt-8">
                 <FormField
                   control={form.control}
@@ -338,7 +338,7 @@ export function InputField() {
                     <FormItem className="flex flex-col">
                       <Popover>
                         <PopoverTrigger asChild>
-                          <FormControl>
+                          <FormControl className="text-slate-400">
                             <Button
                               variant={"outline"}
                               className={cn(
@@ -516,7 +516,7 @@ export function InputField() {
                         />
                       </FormControl>
                       <div className="space-y-1 leading-none">
-                        <FormLabel>
+                        <FormLabel className="text-slate-400">
                           I agree to the rules of the community
                         </FormLabel>
                       </div>

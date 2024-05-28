@@ -72,3 +72,8 @@ export type SideNavItemGroup = {
   title: string;
   menuList: SideNavItem[];
 };
+
+
+export interface InputType {
+  email?: string;
+}

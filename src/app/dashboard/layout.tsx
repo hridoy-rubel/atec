@@ -29,10 +29,7 @@ export default async function AdminLayout({
       <Sidebar />
       <div className="flex flex-col h-full w-full">
         <AdminHeader />
-        <AdminPageWrapper>
-          {children}
-          <Footer />
-        </AdminPageWrapper>
+        <AdminPageWrapper>{children}</AdminPageWrapper>
       </div>
     </div>
   );

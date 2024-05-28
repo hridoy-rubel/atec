@@ -1,7 +1,7 @@
 "use client";
 
 import { LoginUser } from "@/actions/auth.actions";
-import { loginFormSchema } from "@/app/validations/auth";
+import { loginFormSchema } from "@/validations/auth";
 import { Icons } from "@/components/icons";
 import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";

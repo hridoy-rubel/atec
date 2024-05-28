@@ -6,7 +6,7 @@ type HeadingPropTypes = {
 
 const Heading = ({ content }: HeadingPropTypes) => {
   return (
-    <h1 className="animate-fade-up font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-4">
+    <h1 className="animate-fade-up font-urbanist  font-extrabold tracking-tight text-2xl md:text-4xl lg:text-5xl xl:text-5xl mb-4">
       <Balancer>
         <span className="bg-gradient-to-r from-pink-700 to-purple-500 bg-clip-text font-extrabold text-transparent">
           {content}

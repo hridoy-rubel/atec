@@ -1,4 +1,4 @@
-import { LoginForm } from "@/components/forms/login-form";
+import LoginForm from "@/components/forms/login-form";
 import { Icons } from "@/components/icons";
 import {
   Card,

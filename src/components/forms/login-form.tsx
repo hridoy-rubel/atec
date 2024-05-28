@@ -22,7 +22,7 @@ import { z } from "zod";
 import { showToast } from "@/lib/toast";
 import { useTheme } from "next-themes";
 
-export function LoginForm(): JSX.Element {
+const LoginForm = (): JSX.Element => {
   const { theme } = useTheme();
   const router = useRouter();
   const [isPending, startTransition] = React.useTransition();
@@ -136,4 +136,6 @@ export function LoginForm(): JSX.Element {
       </form>
     </Form>
   );
-}
+};
+
+export default LoginForm;

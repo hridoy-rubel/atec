@@ -1,7 +1,7 @@
 "use client";
 
 import { LoginUser } from "@/actions/auth.actions";
-import { loginFormSchema } from "@/app/validations/auth";
+import { loginFormSchema } from "@/validations/auth";
 import { Icons } from "@/components/icons";
 import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";
@@ -30,7 +30,7 @@ const LoginForm = (): JSX.Element => {
   const form = useForm<z.infer<typeof loginFormSchema>>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
@@ -39,7 +39,7 @@ const LoginForm = (): JSX.Element => {
     startTransition(async () => {
       try {
         const response = await LoginUser({
-          username: formData.username,
+          email: formData.email,
           password: formData.password,
         });
 
@@ -91,12 +91,12 @@ const LoginForm = (): JSX.Element => {
       >
         <FormField
           control={form.control}
-          name="username"
+          name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="username" {...field} />
+                <Input placeholder="your registered email" {...field} />
               </FormControl>
               <FormMessage className="pt-2 sm:text-sm" />
             </FormItem>

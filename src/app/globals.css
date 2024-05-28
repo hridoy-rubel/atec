@@ -120,3 +120,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.timer-segment {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+

@@ -13,6 +13,19 @@ export interface NavItem {
   disabled?: boolean;
 }
 
+// types.ts (Type Definition)
+export interface UserData {
+  cadetNo: string;
+  confirmPassword: string;
+  email: string;
+}
+
+// types.ts
+export interface UserData {
+  cadetNo: string;
+  confirmPassword: string;
+}
+
 export interface FrequentlyAskedQuestion {
   question: string;
   answer: string;
@@ -39,6 +52,15 @@ export interface EventType {
   time: string;
   description: string;
   location: string;
+  image: string;
+}
+// types.ts
+export interface ExecutiveType {
+  id: string;
+  name: string;
+  position: string;
+  ccr: string;
+  session: string;
   image: string;
 }
 
@@ -73,6 +95,12 @@ export type SideNavItemGroup = {
   menuList: SideNavItem[];
 };
 
+export interface EventContactType {
+  name: string;
+  designation: string;
+  phone: 0;
+  img: string;
+}
 
 export interface InputType {
   email?: string;

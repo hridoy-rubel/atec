@@ -39,3 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - Add a required sign (\*) to the input fields
 - Can't go the register page
+- Add a college dropdown in the registration form

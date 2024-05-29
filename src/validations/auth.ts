@@ -19,7 +19,7 @@ export const registerFormSchema = z
       message: "college must be at least 3 characters.",
     }),
 
-    passoutYear: z.string().min(4, {
+    passoutYear: z.number().min(4, {
       message: "Passout Year must be at least 1957.",
     }),
 

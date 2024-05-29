@@ -36,7 +36,7 @@ const RegisterForm = (): JSX.Element => {
       cadetNo: "",
       fullName: "",
       college: "",
-      passoutYear: "",
+      passoutYear: undefined,
       mobileNo: "",
       password: "",
       confirmPassword: "",
@@ -109,11 +109,8 @@ const RegisterForm = (): JSX.Element => {
   return (
     <main>
       <Form {...form}>
-        <form
-          className="grid gap-6 lg:grid-cols-2 md:grid-cols-2"
-          onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}
-        >
-          <div>
+        <form onSubmit={(...args) => void form.handleSubmit(onSubmit)(...args)}>
+          <div className="mb-6">
             <FormField
               control={form.control}
               name="email"
@@ -129,139 +126,147 @@ const RegisterForm = (): JSX.Element => {
             />
           </div>
 
-          <div>
-            <FormField
-              control={form.control}
-              name="cadetName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Cadet Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Cadet Name" {...field} />
-                  </FormControl>
-                  <FormMessage className="sm:text-sm" />
-                </FormItem>
-              )}
-            />
+          <div className="grid gap-6 lg:grid-cols-2 md:grid-cols-2">
+            <div>
+              <FormField
+                control={form.control}
+                name="cadetNo"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Cadet No</FormLabel>
+                    <FormControl>
+                      <Input placeholder="cadet No" {...field} type="number" />
+                    </FormControl>
+                    <FormMessage className="pt-2 sm:text-sm" />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div>
+              <FormField
+                control={form.control}
+                name="cadetName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Cadet Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Cadet Name" {...field} />
+                    </FormControl>
+                    <FormMessage className="sm:text-sm" />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div>
+              <FormField
+                control={form.control}
+                name="fullName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Full Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Full Name" {...field} />
+                    </FormControl>
+                    <FormMessage className="pt-2 sm:text-sm" />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div>
+              <FormField
+                control={form.control}
+                name="college"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>College</FormLabel>
+                    <FormControl>
+                      <Input placeholder="college" {...field} />
+                    </FormControl>
+                    <FormMessage className="pt-2 sm:text-sm" />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div>
+              <FormField
+                control={form.control}
+                name="mobileNo"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Mobile Number</FormLabel>
+                    <FormControl>
+                      <Input placeholder="01*********" {...field} />
+                    </FormControl>
+                    <FormMessage className="pt-2 sm:text-sm" />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div>
+              <FormField
+                control={form.control}
+                name="passoutYear"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Passout Year</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Passout Year"
+                        {...field}
+                        type="number"
+                        onChange={(e) =>
+                          field.onChange(parseInt(e.target.value, 10))
+                        }
+                      />
+                    </FormControl>
+                    <FormMessage className="pt-2 sm:text-sm" />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div>
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <PasswordInput placeholder="Password" {...field} />
+                    </FormControl>
+                    <FormMessage className="pt-2 sm:text-sm" />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div>
+              <FormField
+                control={form.control}
+                name="confirmPassword"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirm Password</FormLabel>
+                    <FormControl>
+                      <PasswordInput
+                        placeholder="Confirm Password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className="pt-2 sm:text-sm" />
+                  </FormItem>
+                )}
+              />
+            </div>
           </div>
 
-          <div>
-            <FormField
-              control={form.control}
-              name="cadetNo"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Cadet No</FormLabel>
-                  <FormControl>
-                    <Input placeholder="cadet No" {...field} type="number" />
-                  </FormControl>
-                  <FormMessage className="pt-2 sm:text-sm" />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div>
-            <FormField
-              control={form.control}
-              name="fullName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Full Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Full Name" {...field} />
-                  </FormControl>
-                  <FormMessage className="pt-2 sm:text-sm" />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div>
-            <FormField
-              control={form.control}
-              name="college"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>College</FormLabel>
-                  <FormControl>
-                    <Input placeholder="college" {...field} />
-                  </FormControl>
-                  <FormMessage className="pt-2 sm:text-sm" />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div>
-            <FormField
-              control={form.control}
-              name="mobileNo"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Mobile Number</FormLabel>
-                  <FormControl>
-                    <Input placeholder="01*********" {...field} />
-                  </FormControl>
-                  <FormMessage className="pt-2 sm:text-sm" />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div>
-            <FormField
-              control={form.control}
-              name="passoutYear"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Passout Year</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Passout Year"
-                      {...field}
-                      type="number"
-                    />
-                  </FormControl>
-                  <FormMessage className="pt-2 sm:text-sm" />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div>
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <PasswordInput placeholder="Password" {...field} />
-                  </FormControl>
-                  <FormMessage className="pt-2 sm:text-sm" />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div>
-            <FormField
-              control={form.control}
-              name="confirmPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Confirm Password</FormLabel>
-                  <FormControl>
-                    <PasswordInput placeholder="Confirm Password" {...field} />
-                  </FormControl>
-                  <FormMessage className="pt-2 sm:text-sm" />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <Button disabled={isPending} className="mt-8">
+          <Button disabled={isPending} className="mt-8 w-full">
             {isPending ? (
               <>
                 <Icons.spinner

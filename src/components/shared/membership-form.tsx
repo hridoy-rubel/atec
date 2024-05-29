@@ -16,13 +16,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { showToast } from "@/lib/toast";
-import { InputFromSchema } from "@/app/validations/membership";
+import { MembershipFromSchema } from "@/app/validations/membership";
 import React from "react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
-import { MembershipUser } from "@/actions/membership.actions";
+import { RegisterMembership } from "@/actions/membership.actions";
 
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
@@ -42,12 +42,12 @@ import {
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 
-export function InputField() {
+export function MembershipForm() {
   const { theme } = useTheme();
 
   const [isPending, startTransition] = React.useTransition();
-  const form = useForm<z.infer<typeof InputFromSchema>>({
-    resolver: zodResolver(InputFromSchema),
+  const form = useForm<z.infer<typeof MembershipFromSchema>>({
+    resolver: zodResolver(MembershipFromSchema),
 
     defaultValues: {
       username: "",
@@ -76,11 +76,11 @@ export function InputField() {
     },
   });
   async function onSubmit(
-    FormData: z.infer<typeof InputFromSchema>
+    FormData: z.infer<typeof MembershipFromSchema>
   ): Promise<void> {
     startTransition(async () => {
       try {
-        const message = await MembershipUser({
+        const message = await RegisterMembership({
           username: FormData.username,
           email: FormData.email,
           phoneNumber: FormData.phoneNumber,
@@ -535,4 +535,4 @@ export function InputField() {
   );
 }
 
-export default InputField;
+export default MembershipForm;

@@ -4,7 +4,7 @@ import Membership from '@/database/models/membership.model';
 import { connectToDatabase } from "../database";
 import { handleError } from '@/lib/utils';
 
-export type MembershipUserParams = {
+export type RegisterMembershipParams = {
     username: string;
     phoneNumber: string;
     translationId: string;
@@ -30,7 +30,7 @@ export type MembershipUserParams = {
     mobile?: Boolean;
 };
 
-export const MembershipUser = async ({
+export const RegisterMembership = async ({
     username,
     phoneNumber,
     translationId,
@@ -54,7 +54,7 @@ export const MembershipUser = async ({
     calender,
     passOutYear,
     mobile,
-}: MembershipUserParams): Promise<"success" | "error"> => {
+}: RegisterMembershipParams): Promise<"success" | "error"> => {
     try {
         await connectToDatabase();
 

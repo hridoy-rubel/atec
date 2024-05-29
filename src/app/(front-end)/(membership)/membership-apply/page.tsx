@@ -1,7 +1,7 @@
 import React from "react";
 //import { InputType } from "@/types";
-import InputField from "@/components/shared/input-field";
 import Heading from "@/components/shared/heading";
+import MembershipForm from "@/components/shared/membership-form";
 
 const MembershipApplyPage = () => {
   return (
@@ -15,7 +15,7 @@ const MembershipApplyPage = () => {
       <p className="text-center text-lime-500 text-lg mb-2">
         Membership Fee: General category:500 BDT; Life Member: 5000 BDT
       </p>
-      <InputField />
+      <MembershipForm />
     </>
   );
 };

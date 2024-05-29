@@ -1,7 +1,7 @@
 import { Schema, model, models } from "mongoose";
 // import { Boolean } from "zod";
 
-const MembershipSchema = new Schema(
+const MembershipFormSchema = new Schema(
     {
         username: { type: String, required: true, unique: true, trim: true },
         phoneNumber: { type: String, required: true, unique: true, trim: true },
@@ -32,6 +32,6 @@ const MembershipSchema = new Schema(
     }
 );
 
-const Membership = models?.Membership || model("Membership", MembershipSchema);
+const Membership = models?.Membership || model("Membership", MembershipFormSchema);
 
 export default Membership;

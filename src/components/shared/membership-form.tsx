@@ -2,31 +2,32 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { number, z } from "zod";
-
+import { z } from "zod";
+import { RegisterMembership } from "@/actions/membership.actions";
+import { MembershipFromSchema } from "@/app/validations/membership";
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
-  FormDescription,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { showToast } from "@/lib/toast";
-import { MembershipFromSchema } from "@/app/validations/membership";
-import React from "react";
+import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
-import { cn } from "@/lib/utils";
-import { RegisterMembership } from "@/actions/membership.actions";
-
+import React, { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
-import Link from "next/link";
-
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   Select,
   SelectContent,
@@ -34,18 +35,37 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
+import { CollegeType } from "@/types";
+
+export enum MEMBERSHIP_TYPES {
+  Life_member = "life_member",
+  General_member = "general_member",
+}
+
+export const CADET_COLLEGES: CollegeType[] = [
+  { title: "FCC", value: "fcc" },
+  { title: "RCC", value: "rcc" },
+  { title: "MCC", value: "mcc" },
+  { title: "JCC", value: "jcc" },
+  { title: "CCR", value: "ccr" },
+  { title: "SCC", value: "scc" },
+  { title: "MGCC", value: "mgcc" },
+  { title: "CCC", value: "ccc" },
+  { title: "BCC", value: "bcc" },
+  { title: "PCC", value: "pcc" },
+  { title: "JGCC", value: "jgcc" },
+  { title: "FGCC", value: "fgcc" },
+];
 
 export function MembershipForm() {
   const { theme } = useTheme();
 
   const [isPending, startTransition] = React.useTransition();
+  const [selectedMembershipCategory, setSelectedMembershipCategory] = useState<
+    string | null
+  >(null);
+
   const form = useForm<z.infer<typeof MembershipFromSchema>>({
     resolver: zodResolver(MembershipFromSchema),
 
@@ -72,7 +92,7 @@ export function MembershipForm() {
       membershipCategory: "",
       calender: new Date(),
       passOutYear: "",
-      mobile: true,
+      mobile: false,
     },
   });
   async function onSubmit(
@@ -152,17 +172,14 @@ export function MembershipForm() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="fcc">FCC</SelectItem>
-                          <SelectItem value="rcc">RCC</SelectItem>
-                          <SelectItem value="mcc">MCC</SelectItem>
-                          <SelectItem value="jcc">JCC</SelectItem>
-                          <SelectItem value="scc">SCC</SelectItem>
-                          <SelectItem value="mgcc">MGCC</SelectItem>
-                          <SelectItem value="ccc">CCC</SelectItem>
-                          <SelectItem value="bcc">BCC</SelectItem>
-                          <SelectItem value="pcc">PCC</SelectItem>
-                          <SelectItem value="jgcc">JGCC</SelectItem>
-                          <SelectItem value="pgcc">PGCC</SelectItem>
+                          {CADET_COLLEGES?.map((college: CollegeType) => (
+                            <SelectItem
+                              value={college.value}
+                              key={college.value}
+                            >
+                              {college.title}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -177,7 +194,10 @@ export function MembershipForm() {
                   render={({ field }) => (
                     <FormItem>
                       <Select
-                        onValueChange={field.onChange}
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          setSelectedMembershipCategory(value);
+                        }}
                         defaultValue={field.value}
                       >
                         <FormControl>
@@ -186,17 +206,33 @@ export function MembershipForm() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="select membership category">
+                          <SelectItem
+                            value="select membership category"
+                            disabled
+                          >
                             Select Membership Category
                           </SelectItem>
-                          <SelectItem value="life member">
+                          <SelectItem value={MEMBERSHIP_TYPES.Life_member}>
                             Life Memeber
                           </SelectItem>
-                          <SelectItem value="general member">
+                          <SelectItem value={MEMBERSHIP_TYPES.General_member}>
                             General Member
                           </SelectItem>
                         </SelectContent>
                       </Select>
+                      {selectedMembershipCategory ==
+                        MEMBERSHIP_TYPES.General_member && (
+                        <FormDescription className="text-sky-500">
+                          General category : 500 TK
+                        </FormDescription>
+                      )}
+
+                      {selectedMembershipCategory ==
+                        MEMBERSHIP_TYPES.Life_member && (
+                        <FormDescription className="text-sky-500">
+                          Life Member : 5000 TK
+                        </FormDescription>
+                      )}
                       <FormMessage />
                     </FormItem>
                   )}

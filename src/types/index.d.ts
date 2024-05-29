@@ -105,3 +105,8 @@ export interface EventContactType {
 export interface InputType {
   email?: string;
 }
+
+export interface CollegeType {
+  title: string;
+  value: string;
+}

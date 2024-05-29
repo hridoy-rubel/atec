@@ -101,3 +101,12 @@ export interface EventContactType {
   phone: 0;
   img: string;
 }
+
+export interface InputType {
+  email?: string;
+}
+
+export interface CollegeType {
+  title: string;
+  value: string;
+}

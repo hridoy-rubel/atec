@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const RegisterPage = async (): Promise<JSX.Element> => {
   return (
     <div className="flex h-auto min-h-screen w-full items-center justify-center md:flex">
-      <Card className="max-sm:flex max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
+      <Card className="max-sm:flex max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-between">
             <CardTitle className="text-2xl">Register</CardTitle>
@@ -44,14 +44,14 @@ const RegisterPage = async (): Promise<JSX.Element> => {
           </div>
 
           <div className="text-sm text-muted-foreground md:text-xs">
-            By continuing, you agree to our{" "}
+            By continuing, you agree to our
             <Link
               aria-label="Terms of Service"
               href="/tos"
               className="font-semibold underline-offset-4 transition-all hover:underline"
             >
               ToS
-            </Link>{" "}
+            </Link>
             <br className="xs:hidden sm:block md:hidden" />
             and
             <Link

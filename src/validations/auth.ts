@@ -12,14 +12,14 @@ export const registerFormSchema = z
     }),
 
     fullName: z.string().min(3, {
-      message: "fullname must be at least 3 characters.",
+      message: "fullName must be at least 3 characters.",
     }),
 
     college: z.string().min(3, {
       message: "college must be at least 3 characters.",
     }),
 
-    passoutYear: z.string().min(4, {
+    passoutYear: z.number().min(4, {
       message: "Passout Year must be at least 1957.",
     }),
 

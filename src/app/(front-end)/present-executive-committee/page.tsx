@@ -6,7 +6,10 @@ import React from "react";
 
 const ExecutivePage = () => {
   return (
-    <section aria-label="present executive commitee page" className="">
+    <section
+      aria-label="present executive commitee page"
+      className="dark:text-black"
+    >
       <div
         className="h-20 md:h-36 lg:h-48 bg-cover flex items-center justify-center mb-20"
         style={{

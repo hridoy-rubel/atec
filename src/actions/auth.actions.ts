@@ -15,7 +15,7 @@ export type RegisterUserParams = {
   cadetNo: string;
   fullName: string;
   college: string;
-  passoutYear: string;
+  passoutYear: number;
   mobileNo: string;
   password: string;
   confirmPassword: string;

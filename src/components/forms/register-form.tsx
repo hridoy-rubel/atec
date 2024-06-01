@@ -13,6 +13,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Icons } from "@/components/icons";
 import { PasswordInput } from "@/components/password-input";
@@ -21,6 +28,9 @@ import { z } from "zod";
 import { RegisterUser } from "@/actions/auth.actions";
 import { showToast } from "@/lib/toast";
 import { useTheme } from "next-themes";
+
+import { CollegeType } from "@/types";
+import { CADET_COLLEGES } from "../shared/membership-form";
 
 const RegisterForm = (): JSX.Element => {
   const router = useRouter();
@@ -158,7 +168,6 @@ const RegisterForm = (): JSX.Element => {
                 )}
               />
             </div>
-
             <div>
               <FormField
                 control={form.control}
@@ -167,9 +176,9 @@ const RegisterForm = (): JSX.Element => {
                   <FormItem>
                     <FormLabel>Full Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Full Name" {...field} />
+                      <Input placeholder="fullName" {...field} />
                     </FormControl>
-                    <FormMessage className="pt-2 sm:text-sm" />
+                    <FormMessage className="sm:text-sm" />
                   </FormItem>
                 )}
               />
@@ -182,10 +191,24 @@ const RegisterForm = (): JSX.Element => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>College</FormLabel>
-                    <FormControl>
-                      <Input placeholder="college" {...field} />
-                    </FormControl>
-                    <FormMessage className="pt-2 sm:text-sm" />
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="collage" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {CADET_COLLEGES?.map((college: CollegeType) => (
+                          <SelectItem value={college.value} key={college.value}>
+                            {college.title}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
                   </FormItem>
                 )}
               />

@@ -73,7 +73,7 @@ const EventCard = ({
                   className="h-12 border bg-gradient-to-br from-pink-600/70 to-purple-400/70 text-lg font-bold tracking-wide hover:opacity-70"
                 >
                   Get Ticket
-                <ArrowRightIcon className="ml-3" />  
+                  <ArrowRightIcon className="ml-3" />
                 </Button>
               </div>
             </div>

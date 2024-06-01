@@ -11,7 +11,7 @@ export const pecomittee: ExecutiveType[] = [
   },
   {
     id: "2",
-    name: "Name : Murad",
+    name: "Name : Rubel",
     position: "Baliadangi",
     ccr: "CCR-1663",
     session: "2008-2012",
@@ -59,7 +59,7 @@ export const pecomittee: ExecutiveType[] = [
   },
   {
     id: "8",
-    name: "Name : Dinajpur",
+    name: "Name : Tamanna",
     position: "Rangpur",
     ccr: "CCR-1443",
     session: "2010-2014",
